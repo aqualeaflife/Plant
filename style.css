@@ -402,3 +402,89 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
     max-width:215px !important;
   }
 }
+
+/* 0.4.4 — true non-rectangular hero */
+.hero-wave{
+  position:relative !important;
+  overflow:visible !important;
+  background:none !important;
+  border-radius:0 !important;
+  margin:0 -16px -10px !important;
+  min-height:320px !important;
+  padding:84px 150px 66px 40px !important;
+  isolation:isolate;
+}
+.hero-wave::before,
+.hero-wave::after{
+  content:none !important;
+  display:none !important;
+}
+.hero-art{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:visible;
+}
+.hero-blob{fill:var(--olive-dark)}
+.rainbow.r1{fill:var(--mustard)}
+.rainbow.r2{fill:#efc66a}
+.rainbow.r3{fill:var(--peach)}
+.rainbow.r4{fill:var(--pink)}
+.hero-flower{fill:var(--mustard)}
+.hero-flower .flower-center{fill:#efc66a}
+.hero-sparkles{fill:#fff4d8}
+.hero-wave h2{
+  font-size:37px !important;
+  line-height:1.04 !important;
+  max-width:270px !important;
+  margin:0 0 14px !important;
+  text-wrap:balance;
+}
+.hero-wave p{
+  font-size:14px !important;
+  line-height:1.5 !important;
+  max-width:265px !important;
+  margin:0 !important;
+}
+.sparkles{display:none !important}
+.home-hero{margin-top:-4px !important}
+.page-hero{
+  min-height:300px !important;
+  padding-top:78px !important;
+  padding-bottom:62px !important;
+}
+.stats{
+  margin-top:-36px !important;
+  position:relative;
+  z-index:4;
+}
+@media(max-width:520px){
+  .hero-wave{
+    min-height:310px !important;
+    padding:82px 128px 64px 34px !important;
+  }
+  .hero-wave h2{
+    font-size:34px !important;
+    max-width:238px !important;
+  }
+  .hero-wave p{
+    font-size:13px !important;
+    max-width:230px !important;
+  }
+}
+@media(max-width:390px){
+  .hero-wave{
+    min-height:300px !important;
+    padding:80px 108px 60px 28px !important;
+  }
+  .hero-wave h2{
+    font-size:31px !important;
+    max-width:210px !important;
+  }
+  .hero-wave p{
+    font-size:12.5px !important;
+    max-width:205px !important;
+  }
+}
