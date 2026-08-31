@@ -325,3 +325,80 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
   .hero-wave h2{font-size:31px !important;max-width:210px !important;}
   .hero-wave p{max-width:205px !important;}
 }
+
+
+/* 0.4.3 — organic hero matching approved curved mockup */
+.hero-wave {
+  position:relative !important;
+  overflow:visible !important;
+  background-color:transparent !important;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20430%20300%27%20preserveAspectRatio%3D%27none%27%3E%0A%20%20%3Cpath%20d%3D%27M0%2048%0A%20%20%20%20%20%20%20%20%20%20%20C58%2018%20112%2070%20172%2058%0A%20%20%20%20%20%20%20%20%20%20%20C225%2047%20258%2018%20310%2033%0A%20%20%20%20%20%20%20%20%20%20%20C356%2047%20373%2082%20430%2096%0A%20%20%20%20%20%20%20%20%20%20%20L430%20250%0A%20%20%20%20%20%20%20%20%20%20%20C376%20270%20330%20247%20282%20258%0A%20%20%20%20%20%20%20%20%20%20%20C216%20274%20159%20236%20103%20245%0A%20%20%20%20%20%20%20%20%20%20%20C55%20252%2018%20278%200%20292%20Z%27%0A%20%20%20%20%20%20%20%20fill%3D%27%23455018%27%2F%3E%0A%20%20%3Cpath%20d%3D%27M285%2031%0A%20%20%20%20%20%20%20%20%20%20%20C322%2031%20348%2050%20371%2070%0A%20%20%20%20%20%20%20%20%20%20%20C391%2088%20408%2094%20430%2099%0A%20%20%20%20%20%20%20%20%20%20%20L430%20136%0A%20%20%20%20%20%20%20%20%20%20%20C402%20129%20383%20118%20361%2096%0A%20%20%20%20%20%20%20%20%20%20%20C338%2072%20320%2061%20294%2058%0A%20%20%20%20%20%20%20%20%20%20%20C280%2056%20271%2057%20260%2060%0A%20%20%20%20%20%20%20%20%20%20%20C269%2048%20276%2038%20285%2031%20Z%27%0A%20%20%20%20%20%20%20%20fill%3D%27%23d99a17%27%2F%3E%0A%20%20%3Cpath%20d%3D%27M309%2035%0A%20%20%20%20%20%20%20%20%20%20%20C337%2039%20356%2054%20378%2074%0A%20%20%20%20%20%20%20%20%20%20%20C398%2091%20414%2098%20430%20102%0A%20%20%20%20%20%20%20%20%20%20%20L430%20126%0A%20%20%20%20%20%20%20%20%20%20%20C410%20120%20394%20111%20376%2094%0A%20%20%20%20%20%20%20%20%20%20%20C357%2075%20340%2065%20319%2062%0A%20%20%20%20%20%20%20%20%20%20%20C309%2060%20300%2061%20291%2063%0A%20%20%20%20%20%20%20%20%20%20%20C298%2052%20303%2043%20309%2035%20Z%27%0A%20%20%20%20%20%20%20%20fill%3D%27%23efc66a%27%2F%3E%0A%20%20%3Cpath%20d%3D%27M334%2042%0A%20%20%20%20%20%20%20%20%20%20%20C354%2048%20369%2060%20386%2077%0A%20%20%20%20%20%20%20%20%20%20%20C402%2092%20416%2099%20430%20103%0A%20%20%20%20%20%20%20%20%20%20%20L430%20119%0A%20%20%20%20%20%20%20%20%20%20%20C414%20113%20402%20105%20388%2092%0A%20%20%20%20%20%20%20%20%20%20%20C373%2078%20360%2070%20343%2067%0A%20%20%20%20%20%20%20%20%20%20%20C336%2066%20329%2066%20322%2068%0A%20%20%20%20%20%20%20%20%20%20%20C326%2058%20330%2050%20334%2042%20Z%27%0A%20%20%20%20%20%20%20%20fill%3D%27%23e79a7d%27%2F%3E%0A%20%20%3Cpath%20d%3D%27M358%2052%0A%20%20%20%20%20%20%20%20%20%20%20C372%2059%20383%2068%20396%2081%0A%20%20%20%20%20%20%20%20%20%20%20C409%2093%20420%2099%20430%20103%0A%20%20%20%20%20%20%20%20%20%20%20L430%20113%0A%20%20%20%20%20%20%20%20%20%20%20C418%20108%20408%20102%20398%2092%0A%20%20%20%20%20%20%20%20%20%20%20C386%2081%20376%2075%20364%2072%0A%20%20%20%20%20%20%20%20%20%20%20C359%2071%20354%2071%20349%2072%0A%20%20%20%20%20%20%20%20%20%20%20C352%2064%20355%2058%20358%2052%20Z%27%0A%20%20%20%20%20%20%20%20fill%3D%27%23e6b2a4%27%2F%3E%0A%20%20%3Cg%20transform%3D%27translate%28334%20196%29%27%3E%0A%20%20%20%20%3Cg%20fill%3D%27%23d99a17%27%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%280%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%2845%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%2890%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%28135%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%28180%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%28225%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%28270%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%20%20%3Cellipse%20rx%3D%2710%27%20ry%3D%2728%27%20transform%3D%27rotate%28315%29%20translate%280%20-24%29%27%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Ccircle%20r%3D%2717%27%20fill%3D%27%23efc66a%27%2F%3E%0A%20%20%3C%2Fg%3E%0A%20%20%3Cg%20fill%3D%27%23fff4d8%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M50%2094%20l3%208%208%203-8%203-3%208-3-8-8-3%208-3z%27%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27256%27%20cy%3D%27144%27%20r%3D%273%27%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27292%27%20cy%3D%27207%27%20r%3D%273%27%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%27M392%20232%20l3%208%208%203-8%203-3%208-3-8-8-3%208-3z%27%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E") !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  background-size:100% 100% !important;
+  border-radius:0 !important;
+  margin:0 -16px -14px !important;
+  min-height:300px !important;
+  padding:76px 150px 64px 40px !important;
+}
+.hero-wave::before,
+.hero-wave::after {
+  content:none !important;
+  display:none !important;
+}
+.home-hero {
+  margin-top:-6px !important;
+}
+.page-hero {
+  min-height:265px !important;
+  padding-top:70px !important;
+  padding-bottom:58px !important;
+  margin-bottom:4px !important;
+}
+.hero-wave h2 {
+  font-size:37px !important;
+  line-height:1.04 !important;
+  max-width:270px !important;
+  margin:0 0 13px !important;
+  text-wrap:balance;
+}
+.hero-wave p {
+  font-size:14px !important;
+  line-height:1.48 !important;
+  max-width:270px !important;
+}
+.sparkles {
+  display:none !important;
+}
+.stats {
+  margin-top:-24px !important;
+  border-radius:30px !important;
+}
+@media(max-width:520px){
+  .hero-wave {
+    min-height:295px !important;
+    padding:74px 132px 62px 34px !important;
+  }
+  .hero-wave h2 {
+    font-size:35px !important;
+    max-width:245px !important;
+  }
+  .hero-wave p {
+    font-size:13px !important;
+    max-width:240px !important;
+  }
+}
+@media(max-width:390px){
+  .hero-wave {
+    min-height:288px !important;
+    padding:72px 112px 58px 28px !important;
+  }
+  .hero-wave h2 {
+    font-size:32px !important;
+    max-width:220px !important;
+  }
+  .hero-wave p {
+    font-size:12.5px !important;
+    max-width:215px !important;
+  }
+}
