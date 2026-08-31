@@ -294,3 +294,34 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
   box-sizing:border-box;
 }
 .file-label{margin:0}
+
+/* 0.4.2 hero fidelity update */
+.hero-wave {
+  position:relative !important;
+  overflow:hidden !important;
+  background-color:var(--olive-dark) !important;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20420%20260%27%3E%0A%3Cpath%20d%3D%27M220%200%20C270%2038%20250%2092%20320%20112%20C372%20128%20397%2098%20420%2086%20L420%200%20Z%27%20fill%3D%27%23d99a17%27%2F%3E%0A%3Cpath%20d%3D%27M258%200%20C306%2040%20282%2094%20340%20114%20C386%20130%20406%20113%20420%20106%20L420%2034%20C392%2050%20370%2062%20340%2052%20C304%2040%20306%2011%20296%200%20Z%27%20fill%3D%27%23efc66a%27%2F%3E%0A%3Cpath%20d%3D%27M294%200%20C338%2034%20320%2084%20362%20104%20C394%20119%20411%20113%20420%20108%20L420%2067%20C401%2076%20386%2081%20368%2072%20C340%2058%20345%2025%20333%200%20Z%27%20fill%3D%27%23e79a7d%27%2F%3E%0A%3Cpath%20d%3D%27M332%200%20C366%2028%20357%2070%20389%2088%20C406%2098%20415%2097%20420%2095%20L420%2043%20C405%2047%20397%2046%20389%2041%20C373%2030%20374%2013%20367%200%20Z%27%20fill%3D%27%23e6b2a4%27%2F%3E%0A%3Cg%20transform%3D%27translate%28322%20166%29%27%20fill%3D%27%23d99a17%27%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%280%29%20translate%280%20-31%29%27%2F%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%2860%29%20translate%280%20-31%29%27%2F%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%28120%29%20translate%280%20-31%29%27%2F%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%28180%29%20translate%280%20-31%29%27%2F%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%28240%29%20translate%280%20-31%29%27%2F%3E%0A%3Cellipse%20rx%3D%2716%27%20ry%3D%2740%27%20transform%3D%27rotate%28300%29%20translate%280%20-31%29%27%2F%3E%0A%3C%2Fg%3E%0A%3Ccircle%20cx%3D%27322%27%20cy%3D%27166%27%20r%3D%2723%27%20fill%3D%27%23efc66a%27%2F%3E%0A%3Cg%20fill%3D%27%23fff4d8%27%3E%0A%3Ccircle%20cx%3D%27230%27%20cy%3D%27198%27%20r%3D%273%27%2F%3E%3Ccircle%20cx%3D%27245%27%20cy%3D%27151%27%20r%3D%272.5%27%2F%3E%0A%3Cpath%20d%3D%27M220%20178%20l4%209%209%204-9%204-4%209-4-9-9-4%209-4z%27%2F%3E%0A%3Cpath%20d%3D%27M378%20205%20l3%207%207%203-7%203-3%207-3-7-7-3%207-3z%27%2F%3E%0A%3C%2Fg%3E%3C%2Fsvg%3E") !important;
+  background-repeat:no-repeat !important;
+  background-position:right center !important;
+  background-size:auto 100% !important;
+  border-radius:28px !important;
+  margin:0 !important;
+  min-height:225px !important;
+  padding:34px 180px 34px 24px !important;
+}
+.hero-wave::before,.hero-wave::after {content:none !important;display:none !important;}
+.home-hero {margin-top:4px !important;}
+.page-hero {margin:0 0 18px !important;min-height:190px !important;padding-top:32px !important;padding-bottom:28px !important;}
+.hero-wave h2 {max-width:300px !important;font-size:39px !important;line-height:1.01 !important;margin-bottom:10px !important;}
+.hero-wave p {max-width:290px !important;font-size:14px !important;line-height:1.45 !important;}
+.sparkles {letter-spacing:12px !important;margin-bottom:10px !important;}
+@media(max-width:520px){
+  .hero-wave{padding-right:140px !important;}
+  .hero-wave h2{font-size:34px !important;max-width:240px !important;}
+  .hero-wave p{max-width:225px !important;font-size:12.5px !important;}
+}
+@media(max-width:390px){
+  .hero-wave{padding-right:118px !important;}
+  .hero-wave h2{font-size:31px !important;max-width:210px !important;}
+  .hero-wave p{max-width:205px !important;}
+}
