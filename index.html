@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5eddc">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="PlantGroove">
+<title>PlantGroove</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="logo">PlantGroove <span class="logo-flower">✿</span></div>
+  <button class="profile" id="seedDemo">🌿</button>
+</header>
+
+<main>
+<section id="homeView" class="view active page">
+  <div class="hero-wave home-hero">
+    <div class="sparkles">✦ ✦</div>
+    <h2>Track your plants over time</h2>
+    <p>Log photos, jot down notes, and celebrate every bit of growth and progress.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-icon">🌱</div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon">⚱</div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon">⌁</div><strong id="statRooted">0</strong><span>Rooted</span></div>
+  </div>
+
+  <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
+  <div id="recentPlants" class="cards-scroll"></div>
+
+  <div class="backup-card">
+    <h3>Backup your PlantGroove</h3>
+    <p>Save your plants, propagations, notes, and photos so you can restore them later.</p>
+    <div class="backup-actions">
+      <button id="exportBackup">Export backup</button>
+      <label class="file-label">Restore backup<input id="importBackup" type="file" accept="application/json,.json"></label>
+    </div>
+  </div>
+  <div class="section-head"><h3>Propagation station</h3><button class="text-btn" data-go="propsView">View all ›</button></div>
+  <div id="recentProps"></div>
+</section>
+
+<section id="plantsView" class="view page">
+  <div class="hero-wave page-hero">
+    <div class="sparkles">✦ ✦</div>
+    <h2>Plant collection</h2>
+    <p>All your green friends in one place.</p>
+    <div class="search"><span>⌕</span><input id="plantSearch" placeholder="Search your plants"></div>
+  </div>
+  <div class="controls">
+    <button class="chip active">🌿 All plants</button>
+    <button class="chip">Sort: newest</button>
+  </div>
+  <div id="plantList" class="plant-grid"></div>
+  <button class="fab" id="addPlantBtn">＋</button>
+</section>
+
+<section id="propsView" class="view page">
+  <div class="hero-wave page-hero">
+    <div class="sparkles">✦ ✦</div>
+    <h2>Propagation station</h2>
+    <p>Grow new roots, grow your collection.</p>
+  </div>
+  <div class="controls" id="propFilters">
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="Water">💧 Water</button>
+    <button class="chip" data-filter="Moss">Moss</button>
+    <button class="chip" data-filter="Soil">Soil</button>
+    <button class="chip" data-filter="Ready to pot">Ready to Pot</button>
+  </div>
+  <div id="propList" class="prop-list"></div>
+  <button class="fab" id="addPropBtn">＋</button>
+</section>
+
+<section id="growthView" class="view page">
+  <div class="hero-wave page-hero">
+    <div class="sparkles">✦ ✦</div>
+    <h2>Growth timeline</h2>
+    <p>A visual journey of your plant’s progress over time.</p>
+  </div>
+  <div id="timelineList" class="timeline"></div>
+  <div class="quote">Every leaf tells a story.</div>
+</section>
+
+<section id="detailView" class="view detail"></section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon">⌂</span>Home</button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon">♨</span>Plants</button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon">⚱</span>Props</button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon">☀</span>Growth</button>
+</nav>
+
+<dialog id="plantDialog" class="sheet">
+<form id="plantForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="plantFormTitle">Add plant</h3><button class="close" value="cancel">×</button></div>
+  <input id="plantId" type="hidden">
+  <label>Plant name<input id="plantName" required placeholder="Golden Pothos"></label>
+  <label>Species / variety<input id="plantSpecies" placeholder="Epipremnum aureum"></label>
+  <div class="two">
+    <label>Room<input id="plantRoom" placeholder="Living room"></label>
+    <label>Acquired<input id="plantDate" type="date"></label>
+  </div>
+  <div class="two">
+    <label>Light<select id="plantLight"><option>Bright indirect</option><option>Medium indirect</option><option>Low light</option><option>Direct sun</option><option>Grow light</option></select></label>
+    <label>Status<select id="plantStatus"><option>Thriving</option><option>Happy</option><option>Hardy</option><option>Needs attention</option><option>Rehab</option></select></label>
+  </div>
+  <label>Photo<input id="plantPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="plantNotes" rows="3" placeholder="Care notes, where you got it, anything you want to remember…"></textarea></label>
+  <button class="primary" value="default">Save plant</button>
+</form>
+</dialog>
+
+<dialog id="propDialog" class="sheet">
+<form id="propForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="propFormTitle">Start propagation</h3><button class="close" value="cancel">×</button></div>
+  <input id="propId" type="hidden">
+  <label>Name<input id="propName" required placeholder="Pothos node cutting"></label>
+  <label>Parent plant<select id="propParent"><option value="">Not tracked</option></select></label>
+  <div class="two">
+    <label>Method<select id="propMethod"><option>Water</option><option>Moss</option><option>Soil</option><option>Perlite</option><option>Other</option></select></label>
+    <label>Started<input id="propDate" type="date"></label>
+  </div>
+  <label>Stage<select id="propStage"><option>New cutting</option><option>Callusing</option><option>Rooting</option><option>Establishing</option><option>Ready to pot</option><option>Potted</option><option>Complete</option></select></label>
+  <label>Rooting progress<select id="propProgress"><option value="1">1 of 5</option><option value="2">2 of 5</option><option value="3">3 of 5</option><option value="4">4 of 5</option><option value="5">5 of 5</option></select></label>
+  <label>Photo<input id="propPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="propNotes" rows="3"></textarea></label>
+  <button class="primary" value="default">Save propagation</button>
+</form>
+</dialog>
+
+<dialog id="updateDialog" class="sheet">
+<form id="updateForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3>Add growth update</h3><button class="close" value="cancel">×</button></div>
+  <input id="updatePlantId" type="hidden">
+  <label>Date<input id="updateDate" type="date"></label>
+  <label>Photo<input id="updatePhoto" type="file" accept="image/*"></label>
+  <label>What changed?<textarea id="updateNote" rows="3" placeholder="New leaf unfurling, repotted, new fenestration…"></textarea></label>
+  <button class="primary" value="default">Save update</button>
+</form>
+</dialog>
+
+<script src="app.js"></script>
+</div>
+</body>
+</html>
