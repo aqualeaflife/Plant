@@ -488,3 +488,55 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
     max-width:205px !important;
   }
 }
+
+
+/* 0.4.5 — remove rainbow, keep smooth curved hero */
+.rainbow{
+  display:none !important;
+}
+
+.hero-wave{
+  padding:84px 96px 66px 40px !important;
+}
+
+.hero-wave h2{
+  max-width:300px !important;
+}
+
+.hero-wave p{
+  max-width:290px !important;
+}
+
+.hero-flower{
+  transform:translate(344px, 196px) scale(1.05);
+}
+
+@media(max-width:520px){
+  .hero-wave{
+    padding:82px 86px 64px 34px !important;
+  }
+  .hero-wave h2{
+    max-width:260px !important;
+  }
+  .hero-wave p{
+    max-width:245px !important;
+  }
+  .hero-flower{
+    transform:translate(338px, 198px) scale(1.0);
+  }
+}
+
+@media(max-width:390px){
+  .hero-wave{
+    padding:80px 74px 60px 28px !important;
+  }
+  .hero-wave h2{
+    max-width:230px !important;
+  }
+  .hero-wave p{
+    max-width:215px !important;
+  }
+  .hero-flower{
+    transform:translate(334px, 200px) scale(.95);
+  }
+}
