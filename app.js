@@ -3,12 +3,12 @@ const today=()=>new Date().toISOString().slice(0,10);
 const fmt=d=>d?new Date(d+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"No date";
 const esc=(v="")=>String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const id=()=>crypto.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
-let state={plants:[],props:[],updates:[],propUpdates:[]}, activePropFilter="all";
+let state={plants:[],props:[],updates:[],propUpdates:[],tissueCultures:[],tcUpdates:[]}, activePropFilter="all", activeTCFilter="all";
 
 const DB_NAME="plantgroove03",STORE="state";
 function openDB(){return new Promise((res,rej)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>r.result.createObjectStore(STORE);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
 async function save(){const db=await openDB();const tx=db.transaction(STORE,"readwrite");tx.objectStore(STORE).put(state,"app");return new Promise(r=>tx.oncomplete=r)}
-async function load(){const db=await openDB();const tx=db.transaction(STORE,"readonly");const req=tx.objectStore(STORE).get("app");return new Promise(r=>{req.onsuccess=()=>{if(req.result){state=req.result;if(!state.propUpdates)state.propUpdates=[];}r()};req.onerror=()=>r()})}
+async function load(){const db=await openDB();const tx=db.transaction(STORE,"readonly");const req=tx.objectStore(STORE).get("app");return new Promise(r=>{req.onsuccess=()=>{if(req.result){state=req.result;if(!state.propUpdates)state.propUpdates=[];if(!state.tissueCultures)state.tissueCultures=[];if(!state.tcUpdates)state.tcUpdates=[];}r()};req.onerror=()=>r()})}
 async function imageData(file){if(!file)return"";const img=await createImageBitmap(file);const max=1400,scale=Math.min(1,max/Math.max(img.width,img.height));const c=document.createElement("canvas");c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext("2d").drawImage(img,0,0,c.width,c.height);return c.toDataURL("image/jpeg",.8)}
 function downloadJSON(filename,obj){const blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
 
@@ -55,7 +55,8 @@ function render(){
   $("#statRooted").textContent=state.props.filter(p=>Number(p.progress||stageProgress(p.stage))>=4).length;
   $("#recentPlants").innerHTML=state.plants.length?state.plants.slice().sort((a,b)=>b.created-a.created).slice(0,4).map(plantCard).join(""):`<div class="empty-box">Add your first plant to start your collection.</div>`;
   $("#recentProps").innerHTML=state.props.length?propCard(state.props.slice().sort((a,b)=>b.created-a.created)[0],true):`<div class="empty-box">Start a propagation and track its roots here.</div>`;
-  renderPlants();renderProps();renderTimeline();fillParents();bindCards();
+  $("#recentTC").innerHTML=state.tissueCultures.length?tcCard(state.tissueCultures.slice().sort((a,b)=>b.created-a.created)[0],true):`<div class="empty-box">Add a tissue culture to track acclimation, survival, and dome progress.</div>`;
+  renderPlants();renderProps();renderTC();renderTimeline();fillParents();bindCards();
 }
 function renderPlants(){
   const q=$("#plantSearch").value.trim().toLowerCase();
@@ -66,6 +67,25 @@ function renderProps(){
   const arr=state.props.filter(p=>activePropFilter==="all"||p.method===activePropFilter||p.stage===activePropFilter).sort((a,b)=>b.created-a.created);
   $("#propList").innerHTML=arr.length?arr.map(p=>propCard(p)).join(""):`<div class="empty-box">No propagations in this filter.</div>`;
 }
+
+function tcPercent(t){const s=Number(t.startCount||0),n=Number(t.surviveCount||0);return s>0?Math.max(0,Math.min(100,Math.round(n/s*100))):0}
+function tcCard(t,preview=false){
+  const pct=tcPercent(t), warn=t.contam&&t.contam!=="None";
+  return `<article class="tc-card" data-tc="${t.id}">
+    <div class="tc-thumb">${t.photo?`<img src="${t.photo}">`:"🧫"}</div>
+    <div class="tc-card-body"><h4>${esc(t.name)}</h4><div class="tc-sub">${esc(t.species||t.source||"Tissue culture")}</div>
+      <div class="tc-badges"><span class="tc-badge stage">${esc(t.stage)}</span><span class="tc-badge">${esc(t.tray||"No tray")}</span>${warn?`<span class="tc-badge warn">${esc(t.contam)}</span>`:""}</div>
+      <div class="tc-survival"><div class="tc-survival-line"><i style="width:${pct}%"></i></div><div class="tc-survival-label"><span>${t.surviveCount||0} of ${t.startCount||0} surviving</span><b>${pct}%</b></div></div>
+    </div></article>`;
+}
+function renderTC(){
+  const list=state.tissueCultures.filter(t=>activeTCFilter==="all"||t.stage===activeTCFilter).sort((a,b)=>b.created-a.created);
+  $("#tcTotal").textContent=state.tissueCultures.length;
+  $("#tcAcclimating").textContent=state.tissueCultures.filter(t=>["Freshly deflasked","High humidity","Venting","Acclimating"].includes(t.stage)).length;
+  $("#tcEstablished").textContent=state.tissueCultures.filter(t=>t.stage==="Established").length;
+  $("#tcList").innerHTML=list.length?list.map(t=>tcCard(t)).join(""):`<div class="empty-box">No tissue cultures in this filter.</div>`;
+}
+
 function renderTimeline(){
   const arr=state.updates.slice().sort((a,b)=>new Date(b.date)-new Date(a.date));
   $("#timelineList").innerHTML=arr.length?arr.map(u=>{
@@ -84,9 +104,11 @@ function fillParents(){
 function bindCards(){
   $$("[data-plant]").forEach(el=>el.onclick=()=>showPlant(el.dataset.plant));
   $$("[data-prop]").forEach(el=>el.onclick=()=>showProp(el.dataset.prop));
+  $$("[data-tc]").forEach(el=>el.onclick=()=>showTC(el.dataset.tc));
 }
 $("#plantSearch").oninput=()=>{renderPlants();bindCards()};
 $$("[data-filter]").forEach(b=>b.onclick=()=>{$$("[data-filter]").forEach(x=>x.classList.remove("active"));b.classList.add("active");activePropFilter=b.dataset.filter;renderProps();bindCards()});
+$$("[data-tc-filter]").forEach(b=>b.onclick=()=>{$$("[data-tc-filter]").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeTCFilter=b.dataset.tcFilter;renderTC();bindCards()});
 
 $("#addPlantBtn").onclick=()=>openPlantForm();
 function openPlantForm(p){
@@ -103,6 +125,34 @@ $("#plantForm").onsubmit=async e=>{
   if(ex)Object.assign(ex,p);else{state.plants.push(p);state.updates.push({id:id(),plantId:p.id,date:p.date||today(),note:"Added to collection",photo})}
   await save();$("#plantDialog").close();render();
 };
+
+
+$("#addTCBtn").onclick=()=>openTCForm();
+function openTCForm(t){
+  $("#tcForm").reset();$("#tcId").value=t?.id||"";$("#tcFormTitle").textContent=t?"Update tissue culture":"Add tissue culture";
+  $("#tcName").value=t?.name||"";$("#tcSpecies").value=t?.species||"";$("#tcSource").value=t?.source||"";$("#tcTray").value=t?.tray||"";
+  $("#tcReceived").value=t?.received||today();$("#tcDeflasked").value=t?.deflasked||"";$("#tcMedium").value=t?.medium||"Perlite";$("#tcStage").value=t?.stage||"In flask";
+  $("#tcHumidity").value=t?.humidity||"95–100%";$("#tcDome").value=t?.dome||"Closed";$("#tcStartCount").value=t?.startCount??1;$("#tcSurviveCount").value=t?.surviveCount??1;
+  $("#tcContam").value=t?.contam||"None";$("#tcNotes").value=t?.notes||"";$("#tcDialog").showModal();
+}
+$("#tcForm").onsubmit=async e=>{
+  e.preventDefault();const ex=state.tissueCultures.find(x=>x.id===$("#tcId").value);const photo=await imageData($("#tcPhoto").files[0])||ex?.photo||"";
+  const t={id:ex?.id||id(),name:$("#tcName").value.trim(),species:$("#tcSpecies").value.trim(),source:$("#tcSource").value.trim(),tray:$("#tcTray").value.trim(),received:$("#tcReceived").value,deflasked:$("#tcDeflasked").value,medium:$("#tcMedium").value,stage:$("#tcStage").value,humidity:$("#tcHumidity").value,dome:$("#tcDome").value,startCount:Number($("#tcStartCount").value||0),surviveCount:Number($("#tcSurviveCount").value||0),contam:$("#tcContam").value,notes:$("#tcNotes").value.trim(),photo,created:ex?.created||Date.now()};
+  if(ex)Object.assign(ex,t);else state.tissueCultures.push(t);
+  state.tcUpdates.push({id:id(),tcId:t.id,date:today(),stage:t.stage,humidity:t.humidity,dome:t.dome,startCount:t.startCount,surviveCount:t.surviveCount,contam:t.contam,note:t.notes,photo:$("#tcPhoto").files[0]?photo:""});
+  await save();$("#tcDialog").close();render();
+};
+function showTC(tid){
+  const t=state.tissueCultures.find(x=>x.id===tid);if(!t)return;const hist=state.tcUpdates.filter(u=>u.tcId===tid).sort((a,b)=>new Date(b.date)-new Date(a.date)),pct=tcPercent(t);
+  $("#detailView").innerHTML=`<div class="detail-top"><button class="circle-btn" id="detailBack">←</button><div class="logo" style="font-size:27px">PlantGroove <span class="logo-flower">✿</span></div><button class="circle-btn orange" id="editTC">•••</button></div>
+  <div class="detail-photo">${t.photo?`<img src="${t.photo}">`:"🧫"}</div><div class="detail-wave"><h2>${esc(t.name)}</h2><div class="scientific" style="font-size:14px">${esc(t.species||"Tissue culture")} ${t.tray?`• ${esc(t.tray)}`:""}</div>
+  <div class="callout"><h3>${esc(t.stage)}</h3><div class="tc-survival"><div class="tc-survival-line"><i style="width:${pct}%"></i></div><div class="tc-survival-label"><span>${t.surviveCount} of ${t.startCount} surviving</span><b>${pct}%</b></div></div></div>
+  <div class="tc-detail-grid"><div class="tc-detail-box"><b>Medium</b>${esc(t.medium)}</div><div class="tc-detail-box"><b>Humidity</b>${esc(t.humidity)}</div><div class="tc-detail-box"><b>Dome</b>${esc(t.dome)}</div><div class="tc-detail-box"><b>Contamination</b>${esc(t.contam)}</div><div class="tc-detail-box"><b>Received</b>${fmt(t.received)}</div><div class="tc-detail-box"><b>Deflasked</b>${fmt(t.deflasked)}</div></div>
+  ${t.notes?`<div class="callout"><h3>Notes</h3><div class="muted">${esc(t.notes)}</div></div>`:""}
+  <button class="primary" id="updateTC">Update acclimation</button>
+  <div class="tc-history"><h3>Acclimation history</h3>${hist.length?hist.map(u=>`<div class="tc-history-item"><b>${fmt(u.date)} • ${esc(u.stage)}</b><div class="muted">${esc(u.humidity)} • Dome ${esc(u.dome)} • ${u.surviveCount}/${u.startCount} surviving${u.contam!=="None"?` • ${esc(u.contam)}`:""}</div>${u.note?`<div>${esc(u.note)}</div>`:""}${u.photo?`<img src="${u.photo}">`:""}</div>`).join(""):`<div class="empty-box">No acclimation history yet.</div>`}</div></div>`;
+  switchView("detailView");$("#detailBack").onclick=()=>switchView("tcView");$("#editTC").onclick=$("#updateTC").onclick=()=>openTCForm(t);
+}
 
 $("#addPropBtn").onclick=()=>openPropForm();
 function editPropById(pid){const p=state.props.find(x=>x.id===pid);if(p)openPropForm(p)}
@@ -200,8 +250,8 @@ $("#updateForm").onsubmit=async e=>{
 };
 
 
-$("#exportBackup").onclick=()=>{const stamp=new Date().toISOString().slice(0,10);downloadJSON(`PlantGroove-backup-${stamp}.json`,{version:"0.4",exportedAt:new Date().toISOString(),state})};
-$("#importBackup").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text()),incoming=data.state||data;if(!incoming.plants||!incoming.props||!incoming.updates)throw new Error("invalid");state={plants:incoming.plants||[],props:incoming.props||[],updates:incoming.updates||[],propUpdates:incoming.propUpdates||[]};await save();render();alert("PlantGroove backup restored.")}catch(err){alert("That file doesn’t look like a valid PlantGroove backup.")}e.target.value=""};
+$("#exportBackup").onclick=()=>{const stamp=new Date().toISOString().slice(0,10);downloadJSON(`PlantGroove-backup-${stamp}.json`,{version:"0.5.0",exportedAt:new Date().toISOString(),state})};
+$("#importBackup").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text()),incoming=data.state||data;if(!incoming.plants||!incoming.props||!incoming.updates)throw new Error("invalid");state={plants:incoming.plants||[],props:incoming.props||[],updates:incoming.updates||[],propUpdates:incoming.propUpdates||[],tissueCultures:incoming.tissueCultures||[],tcUpdates:incoming.tcUpdates||[]};await save();render();alert("PlantGroove backup restored.")}catch(err){alert("That file doesn’t look like a valid PlantGroove backup.")}e.target.value=""};
 $("#seedDemo").onclick=async()=>{
   if(state.plants.length){switchView("homeView");return}
   const plants=[
@@ -218,6 +268,7 @@ $("#seedDemo").onclick=async()=>{
     {id:id(),name:"Pothos node cutting",parentId:plants[0].id,method:"Water",date:today(),stage:"Rooting",progress:5,notes:"",photo:"",created:Date.now()-1},
     {id:id(),name:"Monstera top cutting",parentId:plants[2].id,method:"Water",date:today(),stage:"Establishing",progress:3,notes:"",photo:"",created:Date.now()-2}
   );
+  state.tissueCultures.push({id:id(),name:"Florida Beauty",species:"Philodendron Florida Beauty",source:"Demo nursery",tray:"Tray 1",received:today(),deflasked:today(),medium:"Perlite",stage:"High humidity",humidity:"95–100%",dome:"Closed",startCount:3,surviveCount:3,contam:"None",notes:"Freshly deflasked and settling in.",photo:"",created:Date.now()});
   state.updates.push(
     {id:id(),plantId:plants[2].id,date:today(),note:"New leaf unfurling",photo:""},
     {id:id(),plantId:plants[1].id,date:today(),note:"Repotted today",photo:""},

@@ -133,6 +133,9 @@
   </div>
   <div class="section-head"><h3>Propagation station</h3><button class="text-btn" data-go="propsView">View all ›</button></div>
   <div id="recentProps"></div>
+
+  <div class="section-head"><h3>Tissue culture lab</h3><button class="text-btn" data-go="tcView">View all ›</button></div>
+  <div id="recentTC"></div>
 </section>
 
 <section id="plantsView" class="view page">
@@ -339,6 +342,37 @@
   <button class="fab" id="addPropBtn">＋</button>
 </section>
 
+
+<section id="tcView" class="view page">
+  <div class="hero-wave page-hero">
+    <svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="hero-blob" d="M0,58 C55,27 104,34 150,52 C199,71 244,64 286,44 C333,21 369,35 430,75 L430,250 C387,274 343,274 300,264 C250,252 207,245 164,251 C112,258 66,286 0,305 Z"/>
+      <g class="hero-flower" transform="translate(340 205)">
+        <ellipse rx="12" ry="31" transform="rotate(0) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(45) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(90) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(135) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(180) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(225) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(270) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(315) translate(0 -26)"/>
+        <circle r="18" class="flower-center"/>
+      </g>
+    </svg>
+    <h2>Tissue culture lab</h2>
+    <p>Track each plant from flask to fully acclimated.</p>
+  </div>
+  <div class="tc-summary">
+    <div><strong id="tcTotal">0</strong><span>Total</span></div>
+    <div><strong id="tcAcclimating">0</strong><span>Acclimating</span></div>
+    <div><strong id="tcEstablished">0</strong><span>Established</span></div>
+  </div>
+  <div class="controls" id="tcFilters">
+    <button class="chip active" data-tc-filter="all">All</button>
+    <button class="chip" data-tc-filter="Freshly deflasked">Deflasked</button>
+    <button class="chip" data-tc-filter="Venting">Venting</button>
+    <button class="chip" data-tc-filter="Established">Established</button>
+  </div>
+  <div id="tcList" class="tc-list"></div>
+  <button class="fab" id="addTCBtn">＋</button>
+</section>
+
 <section id="growthView" class="view page">
   <div class="hero-wave page-hero">
 <svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
@@ -442,6 +476,7 @@
   <button class="nav-item active" data-view="homeView"><span class="nav-icon">⌂</span>Home</button>
   <button class="nav-item" data-view="plantsView"><span class="nav-icon">♨</span>Plants</button>
   <button class="nav-item" data-view="propsView"><span class="nav-icon">⚱</span>Props</button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon">◉</span>TC</button>
   <button class="nav-item" data-view="growthView"><span class="nav-icon">☀</span>Growth</button>
 </nav>
 
@@ -482,6 +517,41 @@
   <label>Photo<input id="propPhoto" type="file" accept="image/*"></label>
   <label>Notes<textarea id="propNotes" rows="3"></textarea></label>
   <button class="primary" value="default">Save propagation</button>
+</form>
+</dialog>
+
+
+<dialog id="tcDialog" class="sheet">
+<form id="tcForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="tcFormTitle">Add tissue culture</h3><button class="close" value="cancel">×</button></div>
+  <input id="tcId" type="hidden">
+  <label>Plant / cultivar<input id="tcName" required placeholder="e.g. Philodendron Florida Beauty"></label>
+  <label>Species / variety<input id="tcSpecies" placeholder="Optional"></label>
+  <div class="two">
+    <label>Source<input id="tcSource" placeholder="Seller / nursery"></label>
+    <label>Tray / container<input id="tcTray" placeholder="Tray 1"></label>
+  </div>
+  <div class="two">
+    <label>Received<input id="tcReceived" type="date"></label>
+    <label>Deflasked<input id="tcDeflasked" type="date"></label>
+  </div>
+  <div class="two">
+    <label>Medium<select id="tcMedium"><option>Perlite</option><option>Fluval Stratum</option><option>Sphagnum moss</option><option>Pon</option><option>Soil mix</option><option>Other</option></select></label>
+    <label>Stage<select id="tcStage"><option>In flask</option><option>Freshly deflasked</option><option>High humidity</option><option>Venting</option><option>Acclimating</option><option>Established</option><option>Failed</option></select></label>
+  </div>
+  <div class="two">
+    <label>Humidity<select id="tcHumidity"><option>95–100%</option><option>85–95%</option><option>75–85%</option><option>65–75%</option><option>Ambient</option></select></label>
+    <label>Dome<select id="tcDome"><option>Closed</option><option>Cracked</option><option>Vented</option><option>Off</option></select></label>
+  </div>
+  <div class="two">
+    <label>Started with<input id="tcStartCount" type="number" min="0" value="1"></label>
+    <label>Surviving<input id="tcSurviveCount" type="number" min="0" value="1"></label>
+  </div>
+  <label>Contamination<select id="tcContam"><option>None</option><option>Watch</option><option>Mold</option><option>Rot</option></select></label>
+  <label>Photo<input id="tcPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="tcNotes" rows="3" placeholder="Leaf loss, roots, venting schedule, treatments…"></textarea></label>
+  <button class="primary" value="default">Save tissue culture</button>
 </form>
 </dialog>
 
