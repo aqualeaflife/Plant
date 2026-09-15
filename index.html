@@ -114,9 +114,9 @@
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-6"/><path d="M7 20h10"/><path d="M8 14h8l-1.2 4H9.2z"/><path d="M12 13c-3.7 0-6-2.4-6-6 3.3 0 5.2 1.1 6 3.7C12.8 8.1 14.7 7 18 7c0 3.6-2.3 6-6 6z"/></svg></div><strong id="statPlants">0</strong><span>Plants</span></div>
-    <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8"/><path d="M9 4v3l-2 9.5A3 3 0 0 0 10 20h4a3 3 0 0 0 3-3.5L15 7V4"/><path d="M10 12c1.3.7 2.7.7 4 0"/><path d="M12 9V6"/><path d="M11 8c-1.7-1.1-3-.5-4 .8 1.8.7 3.1.4 4-.8z"/></svg></div><strong id="statProps">0</strong><span>Props</span></div>
-    <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-5"/><path d="M12 15c-3-1-5-3.3-5-6.4 2.9 0 4.5 1 5 3.4.6-2.4 2.2-3.4 5-3.4 0 3.1-2 5.4-5 6.4z"/><path d="M8 20c0-2 1.5-3.2 4-3.2s4 1.2 4 3.2"/><path d="M9.5 7.1 11 8.6l3.5-3.7"/></svg></div><strong id="statRooted">0</strong><span>Rooted</span></div>
+    <div class="stat"><div class="stat-icon"><img src="assets/stat-plants.svg" alt="" aria-hidden="true"></div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon"><img src="assets/stat-props.svg" alt="" aria-hidden="true"></div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon"><img src="assets/stat-rooted.svg" alt="" aria-hidden="true"></div><strong id="statRooted">0</strong><span>Rooted</span></div>
   </div>
 
   <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
@@ -552,11 +552,11 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-item active" data-view="homeView"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-5.5h5V20"/></svg></span><span class="nav-label">Home</span></button>
-  <button class="nav-item" data-view="plantsView"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20v-6"/><path d="M7 20h10"/><path d="M8 14h8l-1.2 4H9.2z"/><path d="M12 13c-3.7 0-6-2.4-6-6 3.3 0 5.2 1.1 6 3.7C12.8 8.1 14.7 7 18 7c0 3.6-2.3 6-6 6z"/></svg></span><span class="nav-label">Plants</span></button>
-  <button class="nav-item" data-view="propsView"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4h8"/><path d="M9 4v3l-2 9.5A3 3 0 0 0 10 20h4a3 3 0 0 0 3-3.5L15 7V4"/><path d="M10 12c1.3.7 2.7.7 4 0"/><path d="M12 9V6"/><path d="M11 8c-1.7-1.1-3-.5-4 .8 1.8.7 3.1.4 4-.8z"/></svg></span><span class="nav-label">Props</span></button>
-  <button class="nav-item" data-view="tcView"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5h8"/><path d="M9 5v4l-3 7.5A2.5 2.5 0 0 0 8.3 20h7.4a2.5 2.5 0 0 0 2.3-3.5L15 9V5"/><path d="M8.2 15h7.6"/><path d="M12 15v-3"/><path d="M12 12c-1.8-1.7-3.5-1.3-4.7-.1 1.4 1.3 3 1.5 4.7.1z"/><path d="M12 12c1.8-1.7 3.5-1.3 4.7-.1-1.4 1.3-3 1.5-4.7.1z"/></svg></span><span class="nav-label">TC</span></button>
-  <button class="nav-item" data-view="growthView"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M6 15 10 11l3 2 5-6"/><path d="M16 7h2v2"/><circle cx="6" cy="15" r="1"/><circle cx="10" cy="11" r="1"/><circle cx="13" cy="13" r="1"/></svg></span><span class="nav-label">Growth</span></button>
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon" aria-hidden="true"><img class="nav-off" src="assets/nav-home-off.svg" alt=""><img class="nav-on" src="assets/nav-home-on.svg" alt=""></span><span class="nav-label">Home</span></button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon" aria-hidden="true"><img class="nav-off" src="assets/nav-plants-off.svg" alt=""><img class="nav-on" src="assets/nav-plants-on.svg" alt=""></span><span class="nav-label">Plants</span></button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon" aria-hidden="true"><img class="nav-off" src="assets/nav-props-off.svg" alt=""><img class="nav-on" src="assets/nav-props-on.svg" alt=""></span><span class="nav-label">Props</span></button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon" aria-hidden="true"><img class="nav-off" src="assets/nav-tc-off.svg" alt=""><img class="nav-on" src="assets/nav-tc-on.svg" alt=""></span><span class="nav-label">TC</span></button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon" aria-hidden="true"><img class="nav-off" src="assets/nav-growth-off.svg" alt=""><img class="nav-on" src="assets/nav-growth-on.svg" alt=""></span><span class="nav-label">Growth</span></button>
 </nav>
 
 <dialog id="plantDialog" class="sheet">

@@ -636,3 +636,16 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
   .overview-hero .hero-flower{transform:translate(334px,205px) scale(.78)}
   .nav-label{font-size:9px}
 }
+
+
+/* 0.5.5 dedicated image icon assets */
+.stat-icon{display:grid;place-items:center}
+.stat-icon img{width:22px;height:22px;display:block}
+.nav-icon{position:relative;overflow:hidden}
+.nav-icon img{width:22px;height:22px;display:block;position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%)}
+.nav-icon .nav-on{opacity:0}
+.nav-item.active .nav-icon .nav-off{opacity:0}
+.nav-item.active .nav-icon .nav-on{opacity:1}
+.nav-item:not(.active) .nav-icon{background:transparent;color:transparent;opacity:1}
+.nav-item.active .nav-icon{background:var(--olive);border-color:rgba(255,255,255,.22);box-shadow:0 4px 10px rgba(69,80,24,.16)}
+.nav-label{font-size:9.5px;font-weight:700}
