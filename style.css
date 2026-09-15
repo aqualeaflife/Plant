@@ -595,80 +595,44 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
 .nav-item:active .nav-icon{transform:translateY(0)}
 
 
-/* 0.5.3 heading + navigation style unification */
-.section-kicker{
-  margin:0 0 7px;
-  font-size:9px;
-  line-height:1;
-  font-weight:800;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#f4e6c7;
-  opacity:.9;
+/* 0.5.4 screenshot-driven cleanup */
+.hero-wave{
+  background:transparent !important;
+  overflow:visible !important;
+  isolation:isolate;
 }
-.hero-wave h2{
-  font-family:"Fraunces",serif;
-  letter-spacing:-.035em !important;
-  font-weight:700;
+.hero-art{
+  z-index:0 !important;
+  pointer-events:none;
 }
-.hero-wave p{
-  max-width:275px !important;
-  color:#f7ecd8 !important;
+.hero-wave > :not(.hero-art){
+  position:relative;
+  z-index:2;
 }
-.page-hero .hero-visual{
-  filter:drop-shadow(0 5px 7px rgba(34,38,14,.11));
+/* Home stays intentionally simple: curved olive field + one flower only. */
+.overview-hero .hero-visual{display:none !important}
+.overview-hero .hero-flower{display:block !important}
+.overview-hero .hero-sparkles{display:block !important}
+/* No rectangular fallback behind the curved SVG. */
+.home-hero{background:none !important}
+/* Slightly smaller home flower so it doesn't compete with the headline. */
+.overview-hero .hero-flower{transform:translate(344px,205px) scale(.88)}
+
+.stat-icon svg{
+  width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round
 }
-.section-head h3,
-.tc-history h3,
-.prop-history h3,
-.compare-head h3{
-  letter-spacing:-.018em;
-}
-.bottom-nav{
-  padding-top:7px !important;
-}
-.nav-item{
-  min-width:0;
-  gap:4px !important;
-  letter-spacing:.01em;
-}
-.nav-label{
-  font-size:9.5px;
-  font-weight:700;
-  color:inherit;
-}
-.nav-icon{
-  width:44px !important;
-  height:40px !important;
-  border-radius:17px !important;
-  border:1px solid transparent;
-}
-.nav-icon svg{
-  width:21px !important;
-  height:21px !important;
-  stroke-width:1.8 !important;
-}
-.nav-item:not(.active) .nav-icon{
-  background:transparent;
-  color:var(--brown);
-  opacity:.78;
-}
-.nav-item.active .nav-icon{
-  background:var(--olive);
-  color:#fffdf5;
-  border-color:rgba(255,255,255,.22);
-  box-shadow:0 4px 10px rgba(69,80,24,.16);
-}
-.nav-item.active .nav-label{
-  color:var(--olive-dark);
-}
-.nav-plants svg path:nth-child(4),
-.nav-props svg path:nth-child(5),
-.nav-props svg path:nth-child(6),
-.nav-tc svg path:last-child{
-  stroke-width:1.6;
-}
+.stat-icon{font-size:0 !important}
+
+.bottom-nav{grid-template-columns:repeat(5,1fr)!important}
+.nav-item{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;color:var(--muted);font-size:10px;font-weight:600;padding:4px 2px}
+.nav-label{line-height:1;font-size:9.5px}
+.nav-icon{margin:auto;width:42px;height:38px;border-radius:18px;display:grid;place-items:center;transition:.18s ease}
+.nav-icon svg{width:21px;height:21px;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-item:not(.active) .nav-icon{color:var(--brown);opacity:.82;background:transparent}
+.nav-item.active .nav-icon{background:var(--olive);color:#fff;transform:translateY(-1px)}
+.nav-item.active{color:var(--olive-dark);font-weight:700}
+
 @media(max-width:390px){
+  .overview-hero .hero-flower{transform:translate(334px,205px) scale(.78)}
   .nav-label{font-size:9px}
-  .nav-icon{width:40px !important;height:38px !important}
 }
