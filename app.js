@@ -1,4 +1,3 @@
-window.addEventListener('load',()=>{setTimeout(()=>window.scrollTo(0,0),30)});
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const today=()=>new Date().toISOString().slice(0,10);
 const fmt=d=>d?new Date(d+"T12:00:00").toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}):"No date";

@@ -11,10 +11,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="PlantGroove">
 <title>PlantGroove</title>
-<link rel="manifest" href="manifest.webmanifest?v=7">
-<link rel="apple-touch-icon" href="icon-192.png?v=7">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
 
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="app-shell">
@@ -44,16 +44,16 @@
     <path d="M387 239 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
   </g>
 </svg>
-    <img class="home-plant-png" src="home-hero-plant.png?v=7" alt="" aria-hidden="true">
+    <img class="home-plant-png" src="home-hero-plant.png" alt="" aria-hidden="true">
     <div class="sparkles">✦ ✦</div>
     <h2>Track your plants over time</h2>
     <p>Log photos, jot down notes, and celebrate every bit of growth and progress.</p>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=7" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=7" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=7" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-plants.png" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-props.png" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
   </div>
 
   <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
@@ -75,114 +75,10 @@
 </section>
 
 <section id="plantsView" class="view page">
-  <div class="hero-wave page-hero plants-hero">
-<svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
-  <defs>
-    <clipPath id="heroClip">
-      <path d="
-        M0,58
-        C55,27 104,34 150,52
-        C199,71 244,64 286,44
-        C333,21 369,35 430,75
-        L430,250
-        C387,274 343,274 300,264
-        C250,252 207,245 164,251
-        C112,258 66,286 0,305
-        Z"/>
-    </clipPath>
-  </defs>
-
-  <path class="hero-blob" d="
-    M0,58
-    C55,27 104,34 150,52
-    C199,71 244,64 286,44
-    C333,21 369,35 430,75
-    L430,250
-    C387,274 343,274 300,264
-    C250,252 207,245 164,251
-    C112,258 66,286 0,305
-    Z"/>
-
-  <g clip-path="url(#heroClip)">
-    <path class="rainbow r1" d="
-      M278,30
-      C326,28 357,47 381,70
-      C401,90 416,96 438,101
-      L438,145
-      C405,137 381,123 357,99
-      C335,77 317,68 293,66
-      C278,65 268,68 258,73
-      C264,57 271,42 278,30 Z"/>
-    <path class="rainbow r2" d="
-      M304,33
-      C338,38 363,54 385,75
-      C403,92 418,99 438,103
-      L438,133
-      C413,127 395,116 376,98
-      C357,79 340,70 319,68
-      C308,67 300,69 292,72
-      C297,58 301,45 304,33 Z"/>
-    <path class="rainbow r3" d="
-      M330,40
-      C355,46 374,59 392,77
-      C408,93 421,99 438,103
-      L438,124
-      C420,119 406,111 391,96
-      C376,81 362,74 346,71
-      C338,70 331,71 324,73
-      C326,61 328,50 330,40 Z"/>
-    <path class="rainbow r4" d="
-      M355,48
-      C373,55 388,65 401,79
-      C413,91 425,98 438,102
-      L438,116
-      C424,111 414,104 403,93
-      C391,81 381,76 368,73
-      C362,72 357,73 352,74
-      C353,65 354,56 355,48 Z"/>
-  </g>
-
-  <g class="hero-flower" transform="translate(340 205)">
-    <ellipse rx="12" ry="31" transform="rotate(0) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(45) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(90) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(135) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(180) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(225) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(270) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(315) translate(0 -26)"/>
-    <circle r="18" class="flower-center"/>
-  </g>
-
-  <g class="hero-sparkles">
-    <path d="M46 106 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-    <circle cx="258" cy="151" r="3"/>
-    <circle cx="291" cy="216" r="3"/>
-    <path d="M392 240 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-  </g>
-</svg>
-
-    <div class="hero-visual plants-visual" aria-hidden="true">
-      <svg viewBox="0 0 220 180">
-        <rect class="frame back" x="18" y="38" width="88" height="114" rx="18"/>
-        <rect class="frame front" x="92" y="16" width="110" height="136" rx="22"/>
-        <rect class="pot" x="122" y="111" width="44" height="26" rx="6"/>
-        <rect class="pot rim" x="118" y="103" width="52" height="12" rx="6"/>
-        <path class="stem" d="M145 108 C142 88 146 73 151 60"/>
-        <path class="leaf monstera" d="M154 38 C178 43 193 59 190 82 C187 107 162 123 139 116 C117 110 105 84 112 63 C118 47 135 36 154 38 Z"/>
-        <path class="cut fen1" d="M153 51 C149 63 151 78 157 90"/>
-        <path class="cut fen2" d="M170 63 C163 74 163 91 168 102"/>
-        <path class="cut fen3" d="M136 72 C132 81 132 95 136 104"/>
-        <path class="leaf pothos1" d="M52 63 C69 48 87 51 94 67 C102 84 89 104 69 105 C51 106 38 92 40 76 C41 71 45 66 52 63 Z"/>
-        <path class="leaf pothos2" d="M70 92 C84 80 98 83 103 96 C109 111 99 126 82 128 C66 129 54 118 55 104 C56 99 61 95 70 92 Z"/>
-        <path class="vine" d="M61 124 C72 110 87 102 102 98"/>
-        <circle class="dot" cx="24" cy="28" r="4"/>
-        <circle class="dot" cx="202" cy="146" r="5"/>
-      </svg>
-    </div>
-    <div class="sparkles">✦ ✦</div>
-    <h2>Plant collection</h2>
-    <p>All your green friends in one place.</p>
+  <div class="page-banner-wrap plants-banner-wrap">
+    <img class="page-banner-image" src="plants-banner.png?v=8" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
+  </div>
+  <div class="banner-search">
     <div class="search"><span>⌕</span><input id="plantSearch" placeholder="Search your plants"></div>
   </div>
   <div class="controls">
@@ -374,112 +270,8 @@
 </section>
 
 <section id="growthView" class="view page">
-  <div class="hero-wave page-hero growth-hero">
-<svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
-  <defs>
-    <clipPath id="heroClip">
-      <path d="
-        M0,58
-        C55,27 104,34 150,52
-        C199,71 244,64 286,44
-        C333,21 369,35 430,75
-        L430,250
-        C387,274 343,274 300,264
-        C250,252 207,245 164,251
-        C112,258 66,286 0,305
-        Z"/>
-    </clipPath>
-  </defs>
-
-  <path class="hero-blob" d="
-    M0,58
-    C55,27 104,34 150,52
-    C199,71 244,64 286,44
-    C333,21 369,35 430,75
-    L430,250
-    C387,274 343,274 300,264
-    C250,252 207,245 164,251
-    C112,258 66,286 0,305
-    Z"/>
-
-  <g clip-path="url(#heroClip)">
-    <path class="rainbow r1" d="
-      M278,30
-      C326,28 357,47 381,70
-      C401,90 416,96 438,101
-      L438,145
-      C405,137 381,123 357,99
-      C335,77 317,68 293,66
-      C278,65 268,68 258,73
-      C264,57 271,42 278,30 Z"/>
-    <path class="rainbow r2" d="
-      M304,33
-      C338,38 363,54 385,75
-      C403,92 418,99 438,103
-      L438,133
-      C413,127 395,116 376,98
-      C357,79 340,70 319,68
-      C308,67 300,69 292,72
-      C297,58 301,45 304,33 Z"/>
-    <path class="rainbow r3" d="
-      M330,40
-      C355,46 374,59 392,77
-      C408,93 421,99 438,103
-      L438,124
-      C420,119 406,111 391,96
-      C376,81 362,74 346,71
-      C338,70 331,71 324,73
-      C326,61 328,50 330,40 Z"/>
-    <path class="rainbow r4" d="
-      M355,48
-      C373,55 388,65 401,79
-      C413,91 425,98 438,102
-      L438,116
-      C424,111 414,104 403,93
-      C391,81 381,76 368,73
-      C362,72 357,73 352,74
-      C353,65 354,56 355,48 Z"/>
-  </g>
-
-  <g class="hero-flower" transform="translate(340 205)">
-    <ellipse rx="12" ry="31" transform="rotate(0) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(45) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(90) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(135) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(180) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(225) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(270) translate(0 -26)"/>
-    <ellipse rx="12" ry="31" transform="rotate(315) translate(0 -26)"/>
-    <circle r="18" class="flower-center"/>
-  </g>
-
-  <g class="hero-sparkles">
-    <path d="M46 106 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-    <circle cx="258" cy="151" r="3"/>
-    <circle cx="291" cy="216" r="3"/>
-    <path d="M392 240 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-  </g>
-</svg>
-
-    <div class="hero-visual growth-visual" aria-hidden="true">
-      <svg viewBox="0 0 220 180">
-        <rect class="photo before" x="16" y="48" width="76" height="96" rx="16"/>
-        <rect class="photo after" x="128" y="36" width="76" height="108" rx="18"/>
-        <path class="plant small" d="M54 122 C46 104 49 84 61 70 C70 80 72 95 68 122 Z"/>
-        <path class="plant big" d="M166 124 C154 92 160 66 182 50 C197 67 199 96 190 124 Z"/>
-        <path class="split1" d="M175 62 C171 78 170 96 174 112"/>
-        <path class="split2" d="M189 74 C183 89 183 103 186 116"/>
-        <circle class="date" cx="41" cy="62" r="16"/>
-        <circle class="date" cx="153" cy="50" r="16"/>
-        <path class="arrow" d="M97 92 H123 M115 84 L123 92 L115 100"/>
-        <circle class="dot" cx="110" cy="122" r="4"/>
-        <circle class="dot" cx="122" cy="122" r="4"/>
-        <circle class="dot" cx="134" cy="122" r="4"/>
-      </svg>
-    </div>
-    <div class="sparkles">✦ ✦</div>
-    <h2>Growth timeline</h2>
-    <p>A visual journey of your plant’s progress over time.</p>
+  <div class="page-banner-wrap growth-banner-wrap">
+    <img class="page-banner-image" src="growth-banner.png?v=8" alt="Growth timeline — A visual journey of your plant’s progress over time.">
   </div>
   <div id="timelineList" class="timeline"></div>
   <div class="quote">Every leaf tells a story.</div>
@@ -489,11 +281,11 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=7" alt=""></span><span class="nav-label">Home</span></button>
-  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=7" alt=""></span><span class="nav-label">Plants</span></button>
-  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=7" alt=""></span><span class="nav-label">Props</span></button>
-  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=7" alt=""></span><span class="nav-label">TC</span></button>
-  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=7" alt=""></span><span class="nav-label">Growth</span></button>
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png" alt=""></span><span class="nav-label">Home</span></button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png" alt=""></span><span class="nav-label">Plants</span></button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png" alt=""></span><span class="nav-label">Props</span></button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png" alt=""></span><span class="nav-label">TC</span></button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png" alt=""></span><span class="nav-label">Growth</span></button>
 </nav>
 
 <dialog id="plantDialog" class="sheet">
@@ -583,7 +375,7 @@
 </form>
 </dialog>
 
-<script src="app.js?v=7"></script>
+<script src="app.js"></script>
 </div>
 </body>
 </html>
