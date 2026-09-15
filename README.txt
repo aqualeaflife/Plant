@@ -1,29 +1,18 @@
-PlantGroove clean rebuild v7
+PlantGroove Complete GitHub Update v8
 
-This version intentionally stops using cropped mockup artwork.
+This is a complete continuation package based on the stable PlantGroove app.
 
-Fixes:
-- rebuilt nav icons as true transparent PNGs
-- rebuilt stat icons as true transparent PNGs
-- rebuilt the hero plant as a true transparent illustration with no flower/background box
-- restored safe hero spacing so the full headline stays visible
-- resets scroll position on load
-- stable filenames remain unchanged
-- cache-bust is ?v=7
+Included changes:
+- Screenshot-matched outlined PNG navigation icons
+- Matching PNG stat icons
+- Plant Collection banner with a potted plant instead of a flower
+- Growth Timeline banner with a potted plant instead of a flower
+- Stable filenames retained
+- Internal cache-bust updated to ?v=8
+- cache-cleaner.js removes old service workers and Cache Storage
+- Saved PlantGroove data in IndexedDB/local storage is NOT cleared
 
-Replace these files in your repo root:
-index.html
-style.css
-app.js
-home-hero-plant.png
-nav-home.png
-nav-plants.png
-nav-props.png
-nav-tc.png
-nav-growth.png
-stat-plants.png
-stat-props.png
-stat-rooted.png
+Upload ALL files in this ZIP to the GitHub repository root and replace files with the same names.
 
-Then open:
-https://aqualeaflife.github.io/Plant/index.html?v=7
+After GitHub Pages finishes deploying, open:
+https://aqualeaflife.github.io/Plant/index.html?v=8
