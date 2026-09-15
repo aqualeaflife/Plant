@@ -1,15 +1,29 @@
-PlantGroove stable cache-bust v6
+PlantGroove clean rebuild v7
 
-Changes:
-- cleaned transparent backgrounds from nav/stat icon PNGs
-- removed the extra visible icon backgrounds / card remnants
-- made icons larger
-- made hero plant smaller and moved it left so it is not cut off
-- same stable filenames
-- cache bust bumped to ?v=6
+This version intentionally stops using cropped mockup artwork.
 
-Upload these changed files to repo root and replace existing ones:
-index.html, style.css, nav-home.png, nav-plants.png, nav-props.png, nav-tc.png, nav-growth.png, stat-plants.png, stat-props.png, stat-rooted.png
+Fixes:
+- rebuilt nav icons as true transparent PNGs
+- rebuilt stat icons as true transparent PNGs
+- rebuilt the hero plant as a true transparent illustration with no flower/background box
+- restored safe hero spacing so the full headline stays visible
+- resets scroll position on load
+- stable filenames remain unchanged
+- cache-bust is ?v=7
+
+Replace these files in your repo root:
+index.html
+style.css
+app.js
+home-hero-plant.png
+nav-home.png
+nav-plants.png
+nav-props.png
+nav-tc.png
+nav-growth.png
+stat-plants.png
+stat-props.png
+stat-rooted.png
 
 Then open:
-https://aqualeaflife.github.io/Plant/index.html?v=6
+https://aqualeaflife.github.io/Plant/index.html?v=7

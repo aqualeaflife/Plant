@@ -914,49 +914,95 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
   .home-plant-png{width:172px !important;right:-4px !important;bottom:24px !important}
 }
 
-/* v6 cleanup */
-.bottom-nav .nav-icon{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 0 !important;
+/* v7 clean rebuild: transparent artwork + stable hero */
+.topbar{
+  position:sticky !important;
+  top:0 !important;
+  z-index:30 !important;
 }
-.bottom-nav .nav-icon img{
-  width: 56px !important;
-  height: 56px !important;
-  object-fit: contain !important;
+.home-hero{
+  margin-top:0 !important;
+  min-height:320px !important;
+  padding:70px 190px 72px 38px !important;
+  overflow:hidden !important;
 }
-.bottom-nav .nav-item.active .nav-icon{
-  background: transparent !important;
-  border: none !important;
+.home-hero h2{
+  font-size:38px !important;
+  line-height:1.04 !important;
+  max-width:285px !important;
+  margin:0 0 14px !important;
 }
-.stat-icon{
-  width: 100px !important;
-  height: 100px !important;
-}
-.stat-icon img{
-  width: 96px !important;
-  height: 96px !important;
-  object-fit: contain !important;
+.home-hero p{
+  font-size:14px !important;
+  line-height:1.48 !important;
+  max-width:275px !important;
 }
 .home-plant-png{
-  width: 166px !important;
-  right: 10px !important;
-  bottom: 16px !important;
+  width:210px !important;
+  height:auto !important;
+  right:2px !important;
+  bottom:18px !important;
+  object-fit:contain !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+.stat-icon{
+  width:92px !important;
+  height:92px !important;
+  margin:0 auto 2px !important;
+  background:transparent !important;
+  border:none !important;
+}
+.stat-icon img{
+  width:88px !important;
+  height:88px !important;
+  object-fit:contain !important;
+}
+.bottom-nav .nav-icon{
+  width:56px !important;
+  height:56px !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+.bottom-nav .nav-icon img{
+  width:52px !important;
+  height:52px !important;
+  object-fit:contain !important;
+}
+.bottom-nav .nav-item.active .nav-icon{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+.bottom-nav .nav-item.active .nav-label{
+  color:var(--olive-dark) !important;
+  font-weight:800 !important;
 }
 @media(max-width:520px){
-  .bottom-nav .nav-icon{width:56px !important;height:56px !important}
-  .bottom-nav .nav-icon img{width:52px !important;height:52px !important}
-  .stat-icon{width:92px !important;height:92px !important}
-  .stat-icon img{width:88px !important;height:88px !important}
-  .home-plant-png{width:156px !important;right:8px !important;bottom:18px !important}
-}
-@media(max-width:390px){
+  .home-hero{
+    min-height:305px !important;
+    padding:64px 170px 66px 34px !important;
+  }
+  .home-hero h2{font-size:35px !important;max-width:250px !important}
+  .home-hero p{font-size:13.5px !important;max-width:235px !important}
+  .home-plant-png{width:188px !important;right:0 !important;bottom:18px !important}
+  .stat-icon{width:84px !important;height:84px !important}
+  .stat-icon img{width:80px !important;height:80px !important}
   .bottom-nav .nav-icon{width:52px !important;height:52px !important}
   .bottom-nav .nav-icon img{width:48px !important;height:48px !important}
-  .stat-icon{width:86px !important;height:86px !important}
-  .stat-icon img{width:82px !important;height:82px !important}
-  .home-plant-png{width:148px !important;right:8px !important;bottom:20px !important}
+}
+@media(max-width:390px){
+  .home-hero{
+    min-height:300px !important;
+    padding:62px 145px 64px 30px !important;
+  }
+  .home-hero h2{font-size:32px !important;max-width:220px !important}
+  .home-hero p{font-size:12.8px !important;max-width:205px !important}
+  .home-plant-png{width:168px !important;right:-2px !important;bottom:18px !important}
+  .stat-icon{width:76px !important;height:76px !important}
+  .stat-icon img{width:72px !important;height:72px !important}
+  .bottom-nav .nav-icon{width:48px !important;height:48px !important}
+  .bottom-nav .nav-icon img{width:44px !important;height:44px !important}
 }
