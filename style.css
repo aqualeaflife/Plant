@@ -649,3 +649,29 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
 .nav-item:not(.active) .nav-icon{background:transparent;color:transparent;opacity:1}
 .nav-item.active .nav-icon{background:var(--olive);border-color:rgba(255,255,255,.22);box-shadow:0 4px 10px rgba(69,80,24,.16)}
 .nav-label{font-size:9.5px;font-weight:700}
+
+
+/* 0.5.6 colorful icons + more organic home hero */
+.home-hero{margin-bottom:-18px !important}
+.overview-hero .sparkles{display:none !important}
+.home-hero-art{overflow:visible}
+.home-hero-art .home-blob{fill:var(--olive-dark)}
+.overview-hero .hero-sparkles{display:block !important;fill:#fff0cd;opacity:.95}
+.overview-hero .hero-home-plant{display:block}
+.overview-hero .hero-home-plant .pot-body{fill:#c77a54}
+.overview-hero .hero-home-plant .pot-rim{fill:#d79a75}
+.overview-hero .hero-home-plant .stem{fill:none;stroke:#f2ebd8;stroke-width:4;stroke-linecap:round}
+.overview-hero .hero-home-plant .leaf-a{fill:#8ea84d;stroke:#f2ebd8;stroke-width:3;stroke-linejoin:round}
+.overview-hero .hero-home-plant .leaf-b{fill:#76913d;stroke:#f2ebd8;stroke-width:3;stroke-linejoin:round}
+.overview-hero .hero-home-plant .small1,.overview-hero .hero-home-plant .small2{fill:#9abb5f;stroke:#f2ebd8;stroke-width:2.6;stroke-linejoin:round}
+.overview-hero .hero-home-plant .cut{fill:none;stroke:#f2ebd8;stroke-width:2.4;stroke-linecap:round}
+.overview-hero .hero-flower{display:none !important}
+.overview-hero .hero-visual{display:none !important}
+.stat-icon img{width:24px;height:24px}
+.nav-icon{background:#efe8d5;border:1px solid #ddd0b8}
+.nav-icon img{width:24px;height:24px}
+.nav-item:not(.active) .nav-icon{background:#efe8d5;color:transparent;opacity:1}
+.nav-item.active .nav-icon{background:var(--olive);border-color:rgba(255,255,255,.18);box-shadow:0 4px 10px rgba(69,80,24,.16)}
+@media(max-width:520px){
+  .home-hero{margin-bottom:-14px !important}
+}
