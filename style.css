@@ -507,3 +507,77 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
 .tc-survival-label{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px}
 .tc-detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}.tc-detail-box{background:var(--soft);border-radius:13px;padding:10px;font-size:10px}.tc-detail-box b{display:block;color:var(--brown);margin-bottom:2px}
 .tc-history{margin-top:18px}.tc-history h3{font-family:"Fraunces",serif;font-size:20px;margin-bottom:9px}.tc-history-item{background:var(--soft);border-radius:14px;padding:10px;margin-bottom:8px}.tc-history-item img{width:100%;max-height:230px;object-fit:cover;border-radius:10px;margin-top:8px}
+
+
+/* 0.5.1 section-specific hero visuals */
+.page-hero .hero-flower,
+.page-hero .hero-sparkles{display:none}
+.overview-hero .hero-flower{display:block}
+.overview-hero .hero-sparkles{display:block}
+.hero-wave{position:relative}
+.hero-wave.page-hero{padding-right:150px !important}
+.hero-visual{position:absolute;right:16px;bottom:18px;width:130px;height:110px;z-index:2;pointer-events:none;opacity:.98}
+.hero-visual svg{width:100%;height:100%;display:block;overflow:visible}
+.plants-hero .hero-visual{right:16px;bottom:20px;width:148px;height:118px}
+.props-hero .hero-visual{right:12px;bottom:16px;width:150px;height:120px}
+.tc-hero .hero-visual{right:12px;bottom:18px;width:152px;height:124px}
+.growth-hero .hero-visual{right:12px;bottom:16px;width:154px;height:118px}
+.overview-hero .hero-visual{right:24px;bottom:34px;width:130px;height:102px;opacity:.9}
+
+.hero-visual .frame{fill:#f4eddc;stroke:#d9cfb9;stroke-width:3}
+.hero-visual .frame.back{opacity:.94}
+.hero-visual .frame.front{opacity:1}
+.hero-visual .pot{fill:#c3895b}
+.hero-visual .pot.rim{fill:#d2a078}
+.hero-visual .stem,.hero-visual .root,.hero-visual .vine,.hero-visual .cut,.hero-visual .arrow{fill:none;stroke:#6e5f3b;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.hero-visual .leaf,.hero-visual .monstera,.hero-visual .pothos1,.hero-visual .pothos2,.hero-visual .sprout,.hero-visual .mini-leaf,.hero-visual .tc-leaf1,.hero-visual .tc-leaf2,.hero-visual .plant.small,.hero-visual .plant.big{fill:#7d9443}
+.hero-visual .cut,.hero-visual .split1,.hero-visual .split2{stroke:#445018;stroke-width:3;stroke-linecap:round}
+.hero-visual .dot{fill:#e1a31f}
+
+.props-visual .surface{fill:rgba(244,237,220,.45)}
+.props-visual .jar.glass{fill:rgba(248,245,236,.62);stroke:#e7dcc3;stroke-width:3}
+.props-visual .jar.rim{fill:#f5f0e6;stroke:#e7dcc3;stroke-width:3}
+.props-visual .water{fill:#d4e6de}
+.props-visual .cup.top{fill:#f8f3ea;stroke:#e7dcc3;stroke-width:3}
+.props-visual .cup.body{fill:rgba(248,245,236,.6);stroke:#e7dcc3;stroke-width:3}
+.props-visual .moss{fill:#a68b53}
+.props-visual .sprout.leaf1,.props-visual .sprout.leaf2{fill:#7d9443}
+
+.tc-visual .cup.top,.tc-visual .cup.body,.tc-visual .cell{fill:rgba(248,245,236,.68);stroke:#e7dcc3;stroke-width:3}
+.tc-visual .agar{fill:#d9e1bd}
+.tc-visual .tc-sprout{fill:none;stroke:#6e5f3b;stroke-width:3;stroke-linecap:round}
+.tc-visual .tc-leaf1,.tc-visual .tc-leaf2,.tc-visual .mini-leaf{fill:#7d9443}
+.tc-visual .tray{fill:#d7b38b}
+.tc-visual .dome-cover{fill:rgba(248,245,236,.35);stroke:#e7dcc3;stroke-width:3}
+.tc-visual .dew{fill:#f7f0df}
+
+.growth-visual .photo{fill:#f4eddc;stroke:#d9cfb9;stroke-width:3}
+.growth-visual .date{fill:#73843a}
+.growth-visual .arrow{stroke:#445018;stroke-width:4}
+.growth-visual .dot{fill:#e1a31f}
+.growth-visual .split1,.growth-visual .split2{fill:none;stroke:#445018;stroke-width:3;stroke-linecap:round}
+
+.overview-visual .mini-card{fill:#f1efdf;stroke:#d9cfb9;stroke-width:3}
+.overview-visual .mini-card.alt{fill:#f5e6df}
+.overview-visual .mini-card.soft{fill:#efe9d6}
+.overview-visual .mini-card.gold{fill:#f1e2b3}
+.overview-visual .icon-leaf,.overview-visual .icon-jar,.overview-visual .icon-flask,.overview-visual .icon-sun{fill:none;stroke:#5f6a2a;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+
+@media (max-width:520px){
+  .hero-wave.page-hero{padding-right:128px !important}
+  .hero-visual{width:118px;height:98px;right:10px;bottom:16px}
+  .plants-hero .hero-visual{width:132px;height:104px}
+  .props-hero .hero-visual{width:134px;height:106px}
+  .tc-hero .hero-visual{width:136px;height:108px}
+  .growth-hero .hero-visual{width:136px;height:104px}
+  .overview-hero .hero-visual{width:116px;height:94px;right:18px;bottom:30px}
+}
+@media (max-width:390px){
+  .hero-wave.page-hero{padding-right:108px !important}
+  .hero-visual{width:102px;height:86px;right:8px;bottom:12px}
+  .plants-hero .hero-visual{width:112px;height:92px}
+  .props-hero .hero-visual{width:114px;height:94px}
+  .tc-hero .hero-visual{width:116px;height:96px}
+  .growth-hero .hero-visual{width:116px;height:92px}
+  .overview-hero .hero-visual{width:100px;height:82px;right:14px;bottom:28px}
+}
