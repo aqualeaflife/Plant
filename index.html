@@ -14,7 +14,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 
-<link rel="stylesheet" href="style.css">
+<script src="cache-cleaner.js?v=10"></script>
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 <div class="app-shell">
@@ -25,35 +26,14 @@
 
 <main>
 <section id="homeView" class="view active page">
-  <div class="hero-wave home-hero overview-hero">
-<svg class="hero-art home-hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
-  <defs>
-    <clipPath id="homeHeroClip">
-      <path d="M-8,108 C22,36 95,18 171,47 C228,69 286,30 343,45 C391,57 420,92 438,130 L438,230 C403,274 347,287 286,278 C219,268 172,240 118,251 C65,262 24,292 -6,316 C-18,245 -23,163 -8,108 Z"/>
-    </clipPath>
-  </defs>
-  <path class="hero-blob home-blob" d="M-8,108 C22,36 95,18 171,47 C228,69 286,30 343,45 C391,57 420,92 438,130 L438,230 C403,274 347,287 286,278 C219,268 172,240 118,251 C65,262 24,292 -6,316 C-18,245 -23,163 -8,108 Z"/>
-  <g clip-path="url(#homeHeroClip)">
-    <path class="rainbow r1" d="M278,30 C326,28 357,47 381,70 C401,90 416,96 438,101 L438,145 C405,137 381,123 357,99 C335,77 317,68 293,66 C278,65 268,68 258,73 C264,57 271,42 278,30 Z"/>
-    <path class="rainbow r2" d="M304,33 C338,38 363,54 385,75 C403,92 418,99 438,103 L438,133 C413,127 395,116 376,98 C357,79 340,70 319,68 C308,67 300,69 292,72 C297,58 301,45 304,33 Z"/>
-  </g>
-<g class="hero-sparkles home-sparkles">
-    <path d="M44 112 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-    <circle cx="265" cy="145" r="3"/>
-    <circle cx="282" cy="222" r="3"/>
-    <path d="M387 239 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
-  </g>
-</svg>
-    <img class="home-plant-png" src="home-hero-plant.png" alt="" aria-hidden="true">
-    <div class="sparkles">✦ ✦</div>
-    <h2>Track your plants over time</h2>
-    <p>Log photos, jot down notes, and celebrate every bit of growth and progress.</p>
+  <div class="home-banner-wrap">
+    <img class="home-banner-image" src="home-banner.png?v=10" alt="Track your plants over time — Log photos, jot down notes, and celebrate every bit of growth and progress.">
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=9" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=9" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=9" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=10" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=10" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=10" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
   </div>
 
   <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
@@ -76,7 +56,7 @@
 
 <section id="plantsView" class="view page">
   <div class="page-banner-wrap plants-banner-wrap">
-    <img class="page-banner-image" src="plants-banner.png?v=9" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
+    <img class="page-banner-image" src="plants-banner.png?v=10" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
   </div>
   <div class="banner-search">
     <div class="search"><span>⌕</span><input id="plantSearch" placeholder="Search your plants"></div>
@@ -271,7 +251,7 @@
 
 <section id="growthView" class="view page">
   <div class="page-banner-wrap growth-banner-wrap">
-    <img class="page-banner-image" src="growth-banner.png?v=9" alt="Growth timeline — A visual journey of your plant’s progress over time.">
+    <img class="page-banner-image" src="growth-banner.png?v=10" alt="Growth timeline — A visual journey of your plant’s progress over time.">
   </div>
   <div id="timelineList" class="timeline"></div>
   <div class="quote">Every leaf tells a story.</div>
@@ -281,11 +261,11 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=9" alt=""></span><span class="nav-label">Home</span></button>
-  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=9" alt=""></span><span class="nav-label">Plants</span></button>
-  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=9" alt=""></span><span class="nav-label">Props</span></button>
-  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=9" alt=""></span><span class="nav-label">TC</span></button>
-  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=9" alt=""></span><span class="nav-label">Growth</span></button>
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=10" alt=""></span><span class="nav-label">Home</span></button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=10" alt=""></span><span class="nav-label">Plants</span></button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=10" alt=""></span><span class="nav-label">Props</span></button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=10" alt=""></span><span class="nav-label">TC</span></button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=10" alt=""></span><span class="nav-label">Growth</span></button>
 </nav>
 
 <dialog id="plantDialog" class="sheet">
@@ -375,7 +355,7 @@
 </form>
 </dialog>
 
-<script src="app.js"></script>
+<script src="app.js?v=10"></script>
 </div>
 </body>
 </html>

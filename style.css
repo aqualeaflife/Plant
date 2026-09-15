@@ -847,3 +847,16 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
   .bottom-nav .nav-icon{width:46px !important;height:46px !important}
   .bottom-nav .nav-icon img{width:40px !important;height:40px !important}
 }
+
+
+/* v10 cleanup + new home banner */
+.home-banner-wrap{margin:0 -16px 0;overflow:hidden;background:var(--cream)}
+.home-banner-image{display:block;width:100%;height:auto;object-fit:cover}
+.bottom-nav .nav-item,.bottom-nav button.nav-item{appearance:none!important;-webkit-appearance:none!important;background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important}
+.bottom-nav .nav-icon,.bottom-nav .nav-item .nav-icon,.bottom-nav .nav-item.active .nav-icon,.bottom-nav .nav-item:not(.active) .nav-icon{width:46px!important;height:46px!important;padding:0!important;margin:0 auto!important;background:transparent!important;border:0!important;outline:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;opacity:1!important}
+.bottom-nav .nav-icon::before,.bottom-nav .nav-icon::after{display:none!important;content:none!important}
+.bottom-nav .nav-icon img{position:static!important;inset:auto!important;transform:none!important;display:block!important;width:40px!important;height:40px!important;margin:auto!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;object-fit:contain!important;opacity:1!important;filter:none!important}
+.bottom-nav .nav-item.active .nav-label{color:var(--olive-dark)!important;font-weight:800!important}
+.stat-icon,.stat:nth-child(2) .stat-icon,.stat:nth-child(3) .stat-icon{background:transparent!important;border:0!important;box-shadow:none!important}
+.stat-icon img{background:transparent!important;border:0!important;box-shadow:none!important}
+@media(max-width:520px){.home-banner-wrap{margin-left:-16px;margin-right:-16px}.bottom-nav .nav-icon,.bottom-nav .nav-item .nav-icon{width:44px!important;height:44px!important}.bottom-nav .nav-icon img{width:38px!important;height:38px!important}}
