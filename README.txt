@@ -1,15 +1,16 @@
-PlantGroove 0.5.9 PNG test build
+PlantGroove 0.6.0 — Reference Match
 
-This build uses PNG image assets instead of SVGs for:
-- Home
-- Plants
-- Props
-- Tissue Culture
-- Growth
-- Plants / Props / Rooted stat icons
-- Home hero plant illustration
+This build uses artwork cropped directly from the right-hand “Updated Design”
+comparison image you selected.
 
-All files are flat at the GitHub repository root.
-No service worker is used in this test build, to avoid stale cached artwork.
+Upload every file in this ZIP directly to the GitHub repository root.
 
-Upload every file from this ZIP to the repository root.
+Changed artwork:
+- Plants: potted plant illustration from the reference
+- Props: propagation jar illustration from the reference
+- TC: dome / tissue culture illustration from the reference
+- Growth: leaf illustration from the reference
+- Rooted stat: leaf-and-roots illustration from the reference
+- Home hero: green variegated plant from the reference
+
+No service worker is included in this test build.
