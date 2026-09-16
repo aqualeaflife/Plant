@@ -14,8 +14,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 
-<script src="cache-cleaner.js?v=12"></script>
-<link rel="stylesheet" href="style.css?v=12">
+<script src="cache-cleaner.js?v=13"></script>
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 <div class="app-shell">
@@ -27,13 +27,13 @@
 <main>
 <section id="homeView" class="view active page">
   <div class="home-banner-wrap">
-    <img class="home-banner-image" src="home-banner.png?v=12" alt="Track your plants over time — Log photos, jot down notes, and celebrate every bit of growth and progress.">
+    <img class="home-banner-image" src="home-banner-v13.png" alt="Track your plants over time — Log photos, jot down notes, and celebrate every bit of growth and progress.">
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=12" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=12" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
-    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=12" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=13" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=13" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=13" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
   </div>
 
   <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
@@ -56,7 +56,7 @@
 
 <section id="plantsView" class="view page">
   <div class="page-banner-wrap plants-banner-wrap">
-    <img class="page-banner-image" src="plants-banner.png?v=12" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
+    <img class="page-banner-image" src="plants-banner-v13.png" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
   </div>
   <div class="banner-search">
     <div class="search"><span>⌕</span><input id="plantSearch" placeholder="Search your plants"></div>
@@ -71,7 +71,7 @@
 
 <section id="propsView" class="view page">
   <div class="page-banner-wrap props-banner-wrap">
-    <img class="page-banner-image" src="props-banner.png?v=12" alt="Propagation station — Follow every cutting from snip to new plant.">
+    <img class="page-banner-image" src="props-banner-v13.png" alt="Propagation station — Follow every cutting from snip to new plant.">
   </div>
   <div class="controls" id="propFilters">
     <button class="chip active" data-filter="all">All</button>
@@ -87,7 +87,7 @@
 
 <section id="tcView" class="view page">
   <div class="page-banner-wrap tc-banner-wrap">
-    <img class="page-banner-image" src="tc-banner.png?v=12" alt="Tissue culture lab — Track each plant from flask to fully acclimated.">
+    <img class="page-banner-image" src="tc-banner-v13.png" alt="Tissue culture lab — Track each plant from flask to fully acclimated.">
   </div>
   <div class="tc-summary">
     <div><strong id="tcTotal">0</strong><span>Total</span></div>
@@ -106,7 +106,7 @@
 
 <section id="growthView" class="view page">
   <div class="page-banner-wrap growth-banner-wrap">
-    <img class="page-banner-image" src="growth-banner.png?v=12" alt="Growth timeline — A visual journey of your plant’s progress over time.">
+    <img class="page-banner-image" src="growth-banner-v13.png" alt="Growth timeline — A visual journey of your plant’s progress over time.">
   </div>
   <div id="timelineList" class="timeline"></div>
   <div class="quote">Every leaf tells a story.</div>
@@ -116,11 +116,11 @@
 </main>
 
 <nav class="bottom-nav">
-  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=12" alt=""></span><span class="nav-label">Home</span></button>
-  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=12" alt=""></span><span class="nav-label">Plants</span></button>
-  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=12" alt=""></span><span class="nav-label">Props</span></button>
-  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=12" alt=""></span><span class="nav-label">TC</span></button>
-  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=12" alt=""></span><span class="nav-label">Growth</span></button>
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=13" alt=""></span><span class="nav-label">Home</span></button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=13" alt=""></span><span class="nav-label">Plants</span></button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=13" alt=""></span><span class="nav-label">Props</span></button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=13" alt=""></span><span class="nav-label">TC</span></button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=13" alt=""></span><span class="nav-label">Growth</span></button>
 </nav>
 
 <dialog id="plantDialog" class="sheet">
@@ -210,7 +210,7 @@
 </form>
 </dialog>
 
-<script src="app.js?v=12"></script>
+<script src="app.js?v=13"></script>
 </div>
 </body>
 </html>
