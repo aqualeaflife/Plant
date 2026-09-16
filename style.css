@@ -864,3 +864,37 @@ input,select,textarea{width:100%;margin-top:6px;padding:12px;border-radius:12px;
 /* v11 coordinated section banners */
 .page-banner-wrap,.home-banner-wrap{margin:0 -16px 0;overflow:hidden;background:var(--cream)}
 .page-banner-image,.home-banner-image{display:block;width:100%;height:auto;object-fit:cover}
+
+/* v12 — consistent mobile banner sizing and Home text clearance */
+.page-banner-wrap,
+.home-banner-wrap{
+  width:100%;
+  aspect-ratio:8 / 3;
+  overflow:hidden;
+}
+.page-banner-image,
+.home-banner-image{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:fill;
+}
+/* Home stat cards no longer cover the final line of banner text. */
+.home-banner-wrap + .stats{
+  margin-top:8px !important;
+}
+@media (max-width:520px){
+  .page-banner-wrap,
+  .home-banner-wrap{
+    aspect-ratio:2.5 / 1;
+  }
+  .page-banner-image,
+  .home-banner-image{
+    width:100% !important;
+    height:100% !important;
+    object-fit:fill !important;
+  }
+  .home-banner-wrap + .stats{
+    margin-top:8px !important;
+  }
+}
