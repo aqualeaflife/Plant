@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="theme-color" content="#f5eddc">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="PlantGroove">
+<title>PlantGroove</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<script src="cache-cleaner.js?v=10"></script>
+<link rel="stylesheet" href="style.css?v=10">
+</head>
+<body>
+<div class="app-shell">
+<header class="topbar">
+  <div class="logo">PlantGroove <span class="logo-flower">✿</span></div>
+  <button class="profile" id="seedDemo">🌿</button>
+</header>
+
+<main>
+<section id="homeView" class="view active page">
+  <div class="home-banner-wrap">
+    <img class="home-banner-image" src="home-banner.png?v=10" alt="Track your plants over time — Log photos, jot down notes, and celebrate every bit of growth and progress.">
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-icon"><img src="stat-plants.png?v=10" alt=""></div><strong id="statPlants">0</strong><span>Plants</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-props.png?v=10" alt=""></div><strong id="statProps">0</strong><span>Props</span></div>
+    <div class="stat"><div class="stat-icon"><img src="stat-rooted.png?v=10" alt=""></div><strong id="statRooted">0</strong><span>Rooted</span></div>
+  </div>
+
+  <div class="section-head"><h3>Recently growing</h3><button class="text-btn" data-go="plantsView">See all ›</button></div>
+  <div id="recentPlants" class="cards-scroll"></div>
+
+  <div class="backup-card">
+    <h3>Backup your PlantGroove</h3>
+    <p>Save your plants, propagations, notes, and photos so you can restore them later.</p>
+    <div class="backup-actions">
+      <button id="exportBackup">Export backup</button>
+      <label class="file-label">Restore backup<input id="importBackup" type="file" accept="application/json,.json"></label>
+    </div>
+  </div>
+  <div class="section-head"><h3>Propagation station</h3><button class="text-btn" data-go="propsView">View all ›</button></div>
+  <div id="recentProps"></div>
+
+  <div class="section-head"><h3>Tissue culture lab</h3><button class="text-btn" data-go="tcView">View all ›</button></div>
+  <div id="recentTC"></div>
+</section>
+
+<section id="plantsView" class="view page">
+  <div class="page-banner-wrap plants-banner-wrap">
+    <img class="page-banner-image" src="plants-banner.png?v=10" alt="Plant collection — All your plants in one happy place. Browse, search, and keep them thriving.">
+  </div>
+  <div class="banner-search">
+    <div class="search"><span>⌕</span><input id="plantSearch" placeholder="Search your plants"></div>
+  </div>
+  <div class="controls">
+    <button class="chip active">🌿 All plants</button>
+    <button class="chip">Sort: newest</button>
+  </div>
+  <div id="plantList" class="plant-grid"></div>
+  <button class="fab" id="addPlantBtn">＋</button>
+</section>
+
+<section id="propsView" class="view page">
+  <div class="hero-wave page-hero props-hero">
+<svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <clipPath id="heroClip">
+      <path d="
+        M0,58
+        C55,27 104,34 150,52
+        C199,71 244,64 286,44
+        C333,21 369,35 430,75
+        L430,250
+        C387,274 343,274 300,264
+        C250,252 207,245 164,251
+        C112,258 66,286 0,305
+        Z"/>
+    </clipPath>
+  </defs>
+
+  <path class="hero-blob" d="
+    M0,58
+    C55,27 104,34 150,52
+    C199,71 244,64 286,44
+    C333,21 369,35 430,75
+    L430,250
+    C387,274 343,274 300,264
+    C250,252 207,245 164,251
+    C112,258 66,286 0,305
+    Z"/>
+
+  <g clip-path="url(#heroClip)">
+    <path class="rainbow r1" d="
+      M278,30
+      C326,28 357,47 381,70
+      C401,90 416,96 438,101
+      L438,145
+      C405,137 381,123 357,99
+      C335,77 317,68 293,66
+      C278,65 268,68 258,73
+      C264,57 271,42 278,30 Z"/>
+    <path class="rainbow r2" d="
+      M304,33
+      C338,38 363,54 385,75
+      C403,92 418,99 438,103
+      L438,133
+      C413,127 395,116 376,98
+      C357,79 340,70 319,68
+      C308,67 300,69 292,72
+      C297,58 301,45 304,33 Z"/>
+    <path class="rainbow r3" d="
+      M330,40
+      C355,46 374,59 392,77
+      C408,93 421,99 438,103
+      L438,124
+      C420,119 406,111 391,96
+      C376,81 362,74 346,71
+      C338,70 331,71 324,73
+      C326,61 328,50 330,40 Z"/>
+    <path class="rainbow r4" d="
+      M355,48
+      C373,55 388,65 401,79
+      C413,91 425,98 438,102
+      L438,116
+      C424,111 414,104 403,93
+      C391,81 381,76 368,73
+      C362,72 357,73 352,74
+      C353,65 354,56 355,48 Z"/>
+  </g>
+
+  <g class="hero-flower" transform="translate(340 205)">
+    <ellipse rx="12" ry="31" transform="rotate(0) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(45) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(90) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(135) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(180) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(225) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(270) translate(0 -26)"/>
+    <ellipse rx="12" ry="31" transform="rotate(315) translate(0 -26)"/>
+    <circle r="18" class="flower-center"/>
+  </g>
+
+  <g class="hero-sparkles">
+    <path d="M46 106 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+    <circle cx="258" cy="151" r="3"/>
+    <circle cx="291" cy="216" r="3"/>
+    <path d="M392 240 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+  </g>
+</svg>
+
+    <div class="hero-visual props-visual" aria-hidden="true">
+      <svg viewBox="0 0 220 180">
+        <rect class="surface" x="16" y="136" width="188" height="10" rx="5"/>
+        <g class="jar-group">
+          <rect class="jar rim" x="36" y="44" width="66" height="16" rx="8"/>
+          <path class="jar glass" d="M42 56 H96 L92 133 Q91 144 80 144 H58 Q47 144 46 133 Z"/>
+          <path class="water" d="M47 102 H91 L89 132 Q88 139 80 139 H58 Q50 139 49 132 Z"/>
+          <path class="root" d="M67 86 C65 98 68 110 65 122 M74 88 C78 98 76 112 80 126 M59 92 C55 101 56 113 60 124"/>
+          <path class="stem" d="M70 46 C70 61 70 74 69 87"/>
+          <path class="leaf" d="M57 54 C68 42 84 43 90 56 C95 67 88 79 76 80 C62 81 51 70 52 60 C53 58 54 56 57 54 Z"/>
+        </g>
+        <g class="cup-group">
+          <ellipse class="cup top" cx="157" cy="64" rx="28" ry="8"/>
+          <path class="cup body" d="M129 64 H185 L178 133 Q177 142 166 142 H148 Q137 142 136 133 Z"/>
+          <path class="moss" d="M137 93 C143 84 149 89 154 95 C160 85 166 89 170 95 C175 87 181 90 183 99 V133 H141 Z"/>
+          <path class="sprout stem" d="M158 95 C157 84 159 73 164 64"/>
+          <path class="sprout leaf1" d="M149 76 C158 71 167 74 170 82 C163 86 155 85 149 76 Z"/>
+          <path class="sprout leaf2" d="M165 69 C173 64 181 66 185 74 C177 78 170 77 165 69 Z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="sparkles">✦ ✦</div>
+    <h2>Propagation station</h2>
+    <p>Grow new roots, grow your collection.</p>
+  </div>
+  <div class="controls" id="propFilters">
+    <button class="chip active" data-filter="all">All</button>
+    <button class="chip" data-filter="Water">💧 Water</button>
+    <button class="chip" data-filter="Moss">Moss</button>
+    <button class="chip" data-filter="Soil">Soil</button>
+    <button class="chip" data-filter="Ready to pot">Ready to Pot</button>
+  </div>
+  <div id="propList" class="prop-list"></div>
+  <button class="fab" id="addPropBtn">＋</button>
+</section>
+
+
+<section id="tcView" class="view page">
+  <div class="hero-wave page-hero tc-hero">
+    <svg class="hero-art" viewBox="0 0 430 320" preserveAspectRatio="none" aria-hidden="true">
+      <path class="hero-blob" d="M0,58 C55,27 104,34 150,52 C199,71 244,64 286,44 C333,21 369,35 430,75 L430,250 C387,274 343,274 300,264 C250,252 207,245 164,251 C112,258 66,286 0,305 Z"/>
+      <g class="hero-flower" transform="translate(340 205)">
+        <ellipse rx="12" ry="31" transform="rotate(0) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(45) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(90) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(135) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(180) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(225) translate(0 -26)"/>
+        <ellipse rx="12" ry="31" transform="rotate(270) translate(0 -26)"/><ellipse rx="12" ry="31" transform="rotate(315) translate(0 -26)"/>
+        <circle r="18" class="flower-center"/>
+      </g>
+    </svg>
+    <div class="hero-visual tc-visual" aria-hidden="true">
+      <svg viewBox="0 0 220 180">
+        <g class="agar-cup">
+          <ellipse class="cup top" cx="58" cy="60" rx="26" ry="8"/>
+          <path class="cup body" d="M32 60 H84 L80 116 Q79 126 69 126 H47 Q37 126 36 116 Z"/>
+          <path class="agar" d="M37 102 C46 98 56 101 65 96 C72 93 76 93 79 94 V115 Q78 121 70 121 H48 Q40 121 39 115 Z"/>
+          <path class="tc-sprout" d="M56 98 C55 86 57 75 62 68"/>
+          <path class="tc-leaf1" d="M46 79 C55 73 63 76 66 84 C58 88 50 87 46 79 Z"/>
+          <path class="tc-leaf2" d="M60 73 C68 67 76 69 80 78 C72 81 65 80 60 73 Z"/>
+        </g>
+        <g class="dome">
+          <rect class="tray" x="108" y="116" width="86" height="20" rx="10"/>
+          <path class="dome-cover" d="M114 116 C116 82 132 58 151 58 H165 C184 58 199 82 201 116 Z"/>
+          <rect class="cell" x="122" y="95" width="20" height="22" rx="6"/>
+          <rect class="cell" x="146" y="95" width="20" height="22" rx="6"/>
+          <rect class="cell" x="170" y="95" width="20" height="22" rx="6"/>
+          <path class="mini-leaf" d="M130 106 C134 99 141 101 143 108 C137 111 133 111 130 106 Z"/>
+          <path class="mini-leaf" d="M154 106 C158 99 165 101 167 108 C161 111 157 111 154 106 Z"/>
+          <path class="mini-leaf" d="M178 106 C182 99 189 101 191 108 C185 111 181 111 178 106 Z"/>
+          <circle class="dew" cx="128" cy="78" r="3"/>
+          <circle class="dew" cx="158" cy="70" r="3"/>
+          <circle class="dew" cx="182" cy="84" r="3"/>
+        </g>
+      </svg>
+    </div>
+    <h2>Tissue culture lab</h2>
+    <p>Track each plant from flask to fully acclimated.</p>
+  </div>
+  <div class="tc-summary">
+    <div><strong id="tcTotal">0</strong><span>Total</span></div>
+    <div><strong id="tcAcclimating">0</strong><span>Acclimating</span></div>
+    <div><strong id="tcEstablished">0</strong><span>Established</span></div>
+  </div>
+  <div class="controls" id="tcFilters">
+    <button class="chip active" data-tc-filter="all">All</button>
+    <button class="chip" data-tc-filter="Freshly deflasked">Deflasked</button>
+    <button class="chip" data-tc-filter="Venting">Venting</button>
+    <button class="chip" data-tc-filter="Established">Established</button>
+  </div>
+  <div id="tcList" class="tc-list"></div>
+  <button class="fab" id="addTCBtn">＋</button>
+</section>
+
+<section id="growthView" class="view page">
+  <div class="page-banner-wrap growth-banner-wrap">
+    <img class="page-banner-image" src="growth-banner.png?v=10" alt="Growth timeline — A visual journey of your plant’s progress over time.">
+  </div>
+  <div id="timelineList" class="timeline"></div>
+  <div class="quote">Every leaf tells a story.</div>
+</section>
+
+<section id="detailView" class="view detail"></section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" data-view="homeView"><span class="nav-icon"><img src="nav-home.png?v=10" alt=""></span><span class="nav-label">Home</span></button>
+  <button class="nav-item" data-view="plantsView"><span class="nav-icon"><img src="nav-plants.png?v=10" alt=""></span><span class="nav-label">Plants</span></button>
+  <button class="nav-item" data-view="propsView"><span class="nav-icon"><img src="nav-props.png?v=10" alt=""></span><span class="nav-label">Props</span></button>
+  <button class="nav-item" data-view="tcView"><span class="nav-icon"><img src="nav-tc.png?v=10" alt=""></span><span class="nav-label">TC</span></button>
+  <button class="nav-item" data-view="growthView"><span class="nav-icon"><img src="nav-growth.png?v=10" alt=""></span><span class="nav-label">Growth</span></button>
+</nav>
+
+<dialog id="plantDialog" class="sheet">
+<form id="plantForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="plantFormTitle">Add plant</h3><button class="close" value="cancel">×</button></div>
+  <input id="plantId" type="hidden">
+  <label>Plant name<input id="plantName" required placeholder="Golden Pothos"></label>
+  <label>Species / variety<input id="plantSpecies" placeholder="Epipremnum aureum"></label>
+  <div class="two">
+    <label>Room<input id="plantRoom" placeholder="Living room"></label>
+    <label>Acquired<input id="plantDate" type="date"></label>
+  </div>
+  <div class="two">
+    <label>Light<select id="plantLight"><option>Bright indirect</option><option>Medium indirect</option><option>Low light</option><option>Direct sun</option><option>Grow light</option></select></label>
+    <label>Status<select id="plantStatus"><option>Thriving</option><option>Happy</option><option>Hardy</option><option>Needs attention</option><option>Rehab</option></select></label>
+  </div>
+  <label>Photo<input id="plantPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="plantNotes" rows="3" placeholder="Care notes, where you got it, anything you want to remember…"></textarea></label>
+  <button class="primary" value="default">Save plant</button>
+</form>
+</dialog>
+
+<dialog id="propDialog" class="sheet">
+<form id="propForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="propFormTitle">Start propagation</h3><button class="close" value="cancel">×</button></div>
+  <input id="propId" type="hidden">
+  <label>Name<input id="propName" required placeholder="Pothos node cutting"></label>
+  <label>Parent plant<select id="propParent"><option value="">Not tracked</option></select></label>
+  <div class="two">
+    <label>Method<select id="propMethod"><option>Water</option><option>Moss</option><option>Soil</option><option>Perlite</option><option>Other</option></select></label>
+    <label>Started<input id="propDate" type="date"></label>
+  </div>
+  <label>Stage<select id="propStage"><option>New cutting</option><option>Callusing</option><option>Rooting</option><option>Establishing</option><option>Ready to pot</option><option>Potted</option><option>Complete</option></select></label>
+  <label>Rooting progress<select id="propProgress"><option value="1">1 of 5</option><option value="2">2 of 5</option><option value="3">3 of 5</option><option value="4">4 of 5</option><option value="5">5 of 5</option></select></label>
+  <label>Photo<input id="propPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="propNotes" rows="3"></textarea></label>
+  <button class="primary" value="default">Save propagation</button>
+</form>
+</dialog>
+
+
+<dialog id="tcDialog" class="sheet">
+<form id="tcForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3 id="tcFormTitle">Add tissue culture</h3><button class="close" value="cancel">×</button></div>
+  <input id="tcId" type="hidden">
+  <label>Plant / cultivar<input id="tcName" required placeholder="e.g. Philodendron Florida Beauty"></label>
+  <label>Species / variety<input id="tcSpecies" placeholder="Optional"></label>
+  <div class="two">
+    <label>Source<input id="tcSource" placeholder="Seller / nursery"></label>
+    <label>Tray / container<input id="tcTray" placeholder="Tray 1"></label>
+  </div>
+  <div class="two">
+    <label>Received<input id="tcReceived" type="date"></label>
+    <label>Deflasked<input id="tcDeflasked" type="date"></label>
+  </div>
+  <div class="two">
+    <label>Medium<select id="tcMedium"><option>Perlite</option><option>Fluval Stratum</option><option>Sphagnum moss</option><option>Pon</option><option>Soil mix</option><option>Other</option></select></label>
+    <label>Stage<select id="tcStage"><option>In flask</option><option>Freshly deflasked</option><option>High humidity</option><option>Venting</option><option>Acclimating</option><option>Established</option><option>Failed</option></select></label>
+  </div>
+  <div class="two">
+    <label>Humidity<select id="tcHumidity"><option>95–100%</option><option>85–95%</option><option>75–85%</option><option>65–75%</option><option>Ambient</option></select></label>
+    <label>Dome<select id="tcDome"><option>Closed</option><option>Cracked</option><option>Vented</option><option>Off</option></select></label>
+  </div>
+  <div class="two">
+    <label>Started with<input id="tcStartCount" type="number" min="0" value="1"></label>
+    <label>Surviving<input id="tcSurviveCount" type="number" min="0" value="1"></label>
+  </div>
+  <label>Contamination<select id="tcContam"><option>None</option><option>Watch</option><option>Mold</option><option>Rot</option></select></label>
+  <label>Photo<input id="tcPhoto" type="file" accept="image/*"></label>
+  <label>Notes<textarea id="tcNotes" rows="3" placeholder="Leaf loss, roots, venting schedule, treatments…"></textarea></label>
+  <button class="primary" value="default">Save tissue culture</button>
+</form>
+</dialog>
+
+<dialog id="updateDialog" class="sheet">
+<form id="updateForm" method="dialog">
+  <div class="handle"></div>
+  <div class="sheet-head"><h3>Add growth update</h3><button class="close" value="cancel">×</button></div>
+  <input id="updatePlantId" type="hidden">
+  <label>Date<input id="updateDate" type="date"></label>
+  <label>Photo<input id="updatePhoto" type="file" accept="image/*"></label>
+  <label>What changed?<textarea id="updateNote" rows="3" placeholder="New leaf unfurling, repotted, new fenestration…"></textarea></label>
+  <button class="primary" value="default">Save update</button>
+</form>
+</dialog>
+
+<script src="app.js?v=10"></script>
+</div>
+</body>
+</html>
